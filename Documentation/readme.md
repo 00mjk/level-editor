@@ -4,6 +4,16 @@
 
 The Level Editor is a graphical tool to create level design data.
 
+## Project format
+
+For the moment a project settings file must be created by hand.
+
+In the Level Editor, you can click the menu *File/Generate Project...* to create a default project settings file for you to edit, but that's pretty much it, and it is not a great help for the one who does not know about the file format.
+
+A documentation to explain how to craft your own project settings file should come soon. The best would be a project settings editor tool.
+
+If you really want to use the Level Editor and are struggling with the project settings file, please feel free to contact us at contact [at] bitcraft [dot] co [dot] jp
+
 ## Key bindings
 
 ### File key bindings
