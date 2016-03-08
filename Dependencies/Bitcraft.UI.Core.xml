@@ -1,0 +1,658 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bitcraft.UI.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Bitcraft.UI.Core.AnonymousCommand">
+            <summary>
+            An ICommand that maps to delegate methods.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.AnonymousCommand`1">
+            <summary>
+            A typed ICommand that maps to delegate methods.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand`1.#ctor(System.Action{`0})">
+            <summary>
+            Initializes the AnonymousCommand instance.
+            </summary>
+            <param name="execute">The delegate method to be executed when command is executed.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand`1.#ctor(System.Action{`0},System.Predicate{`0})">
+            <summary>
+            Initializes the AnonymousCommand instance.
+            </summary>
+            <param name="execute">The delegate method to be executed when command is executed.</param>
+            <param name="canExecute">The delegate method to be executed to check for execution validity.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand`1.CanExecute(System.Object)">
+            <summary>
+            Checks if command can be executed or not.
+            </summary>
+            <param name="parameter">The custom parameter to check execution upon.</param>
+            <returns>Returns true if the command can be executed, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand`1.Execute(System.Object)">
+            <summary>
+            Executes the command.
+            </summary>
+            <param name="parameter">The custom parameter to provide to the command at execution time.</param>
+        </member>
+        <member name="P:Bitcraft.UI.Core.AnonymousCommand`1.IsEnabled">
+            <summary>
+            Gets or sets whether the command execution is available or not.
+            </summary>
+        </member>
+        <member name="E:Bitcraft.UI.Core.AnonymousCommand`1.CanExecuteChanged">
+            <summary>
+            Raised when command execution availability changes.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand.#ctor(System.Action)">
+            <summary>
+            Initializes the AnonymousCommand instance.
+            </summary>
+            <param name="execute">The delegate method to be executed when command is executed.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Initializes the AnonymousCommand instance.
+            </summary>
+            <param name="execute">The delegate method to be executed when command is executed.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.AnonymousCommand.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
+            <summary>
+            Initializes the AnonymousCommand instance.
+            </summary>
+            <param name="execute">The delegate method to be executed when command is executed.</param>
+            <param name="canExecute">The delegate method to be executed to check for execution validity.</param>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Behaviors.BringIntoViewBehavior">
+            <summary>
+            A XAML behavior that brings an item into view when it is in a Selector control and gets selected.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.Behaviors.BringIntoViewBehavior.IsAttachedProperty">
+            <summary>
+            Gets or sets whether the behavior is attached to or detached from its Selector control.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.BringIntoViewBehavior.GetIsAttached(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value stored in the IsAttachedProperty DependencyProperty.
+            </summary>
+            <param name="target">The DepdencyObject that holds the value.</param>
+            <returns>Returns true is attached, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.BringIntoViewBehavior.SetIsAttached(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets the value to be stored in the IsAttachedProperty DependencyProperty.
+            </summary>
+            <param name="target">The DepdencyObject that holds the value.</param>
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Behaviors.IListViewSortCommandParameters">
+            <summary>
+            Interface to pass ListViewSortBehavior arguments to the view model, abstracting the view layer.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.Behaviors.IListViewSortCommandParameters.ColumnIndex">
+            <summary>
+            Gets the index of the column to sort.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.Behaviors.IListViewSortCommandParameters.CollectionView">
+            <summary>
+            Gets the CollectionView instance to modify for the view layer to react.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior">
+            <summary>
+            A XAML behavior that notifies the view model layer of sorting request that happened in the view layer.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior.IsAttachedProperty">
+            <summary>
+            Gets the IsAttached DependencyProperty.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior.GetIsAttached(System.Windows.DependencyObject)">
+            <summary>
+            Gets whether the behavior is attached or not.
+            </summary>
+            <param name="target">The DepdencyObject that holds the value.</param>
+            <returns>Returns true is attached, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior.SetIsAttached(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets whether the behavior is attached or not.
+            </summary>
+            <param name="target">The DepdencyObject that holds the value.</param>
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="F:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior.SortCommandProperty">
+            <summary>
+            Gets the SortCommand DependencyProperty.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior.GetSortCommand(System.Windows.DependencyObject)">
+            <summary>
+            Gets the SortCommand instance.
+            </summary>
+            <param name="target">The DependencyObject that holds the value.</param>
+            <returns>Returns the ICommand instance to be executed when sort is requested.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.ListViewSortBehavior.SetSortCommand(System.Windows.DependencyObject,System.Windows.Input.ICommand)">
+            <summary>
+            Sets the SortCommand instance.
+            </summary>
+            <param name="target">The DependencyObject that holds the value.</param>
+            <param name="value">The ICommand value to be executed when sort is requested.</param>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Behaviors.ISelectionChangedBehaviorParameters">
+            <summary>
+            Interface to pass SelectionChangedBehavior arguments to the view model, abstracting the view layer.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.Behaviors.ISelectionChangedBehaviorParameters.SelectedItems">
+            <summary>
+            Gets the data items selected in the view layer.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior">
+            <summary>
+            A XAML behavior that notifies the view model layer of selection changes that happened in the view layer.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior.IsAttachedProperty">
+            <summary>
+            Gets the IsAttached DependencyProperty.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior.GetIsAttached(System.Windows.DependencyObject)">
+            <summary>
+            Gets whether the behavior is attached or not.
+            </summary>
+            <param name="target">The DepdencyObject that holds the value.</param>
+            <returns>Returns true is attached, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior.SetIsAttached(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets whether the behavior is attached or not.
+            </summary>
+            <param name="target">The DepdencyObject that holds the value.</param>
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="F:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior.SelectionChangedCommandProperty">
+            <summary>
+            Gets the SelectionChangedCommand DependencyProperty.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior.GetSelectionChangedCommand(System.Windows.DependencyObject)">
+            <summary>
+            Gets the SelectionChangedCommand instance.
+            </summary>
+            <param name="target">The DependencyObject that holds the value.</param>
+            <returns>Returns the ICommand instance to be executed when selection changes.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Behaviors.SelectionChangedBehavior.SetSelectionChangedCommand(System.Windows.DependencyObject,System.Windows.Input.ICommand)">
+            <summary>
+            Sets the SelectionChangedCommand instance.
+            </summary>
+            <param name="target">The DependencyObject that holds the value.</param>
+            <param name="value">The ICommand value to be executed when selection changes.</param>
+        </member>
+        <member name="T:Bitcraft.UI.Core.DataStateManagement.DataStateManager">
+            <summary>
+            Manages the lifecycle of the state of a data.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.DataStateManager.#ctor(Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor,Bitcraft.UI.Core.DataStateManagement.IDataStateViewProcessor)">
+            <summary>
+            Initializes the DataStateManager instance.
+            </summary>
+            <param name="dataProcessor">Implementation of the data model side.</param>
+            <param name="viewProcessor">Implementation of the view side.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.DataStateManager.Close">
+            <summary>
+            Closes the data.
+            </summary>
+            <returns>Returns true if data could be closed properly, false if modified data remains.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.DataStateManager.Open">
+            <summary>
+            Load new data.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.DataStateManager.Open(System.IO.Stream)">
+            <summary>
+            Integrate already loaded data.
+            </summary>
+            <param name="stream">A read-write access stream.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.DataStateManager.Save">
+            <summary>
+            Saves existing data.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.DataStateManager.SaveAs">
+            <summary>
+            Save existing data to a different storage.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.DataStateManagement.DataStateManager.DataProcessor">
+            <summary>
+            Gets the data processor.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.DataStateManagement.DataStateManager.ViewProcessor">
+            <summary>
+            Gets the view processor.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.DataStateManagement.DataStateManager.IsModified">
+            <summary>
+            Gets or sets whether the data is modified or not.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.DataStateManagement.DataStateManager.Storage">
+            <summary>
+            Gets the latest data storage produced by the data model side.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor">
+            <summary>
+            An implementation of IDataStateViewProcessor based on Win32 dialog boxes.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.DataStateManagement.IDataStateViewProcessor">
+            <summary>
+            Represents the way to manage the state of a data on the view side.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateViewProcessor.ShouldSaveModifiedData">
+            <summary>
+            Tells whether modified data should be saved, discard or if the current operation should be cancelled.
+            </summary>
+            <returns>Returns Yes to save modified data, No to discard it and Cancel to cancel the current operation.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateViewProcessor.OpenStorage">
+            <summary>
+            Opens an asynchronous data storage for reading access.
+            </summary>
+            <returns>Returns a readable asynchronous data storage.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateViewProcessor.UpdateStorage(System.IO.Stream)">
+            <summary>
+            Sets a new data storage being used.
+            </summary>
+            <param name="newStorage">New storage being used.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateViewProcessor.GetSaveStorage(System.Boolean)">
+            <summary>
+            Opens an asynchronous data storage for writing access.
+            </summary>
+            <param name="requestNewTarget">Request the view to provide selection for a new target.</param>
+            <returns>Returns a writable asynchronous data storage.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor.#ctor">
+            <summary>
+            Initializes the WindowsDialogDataStateViewProcessor instance.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor.#ctor(System.String)">
+            <summary>
+            Initializes the WindowsDialogDataStateViewProcessor instance.
+            </summary>
+            <param name="filters">Win32 dialog box filter value.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor.ShouldSaveModifiedData">
+            <summary>
+            Tells whether to save (Yes), to cancel saving (Cancel) or to not save (No).
+            </summary>
+            <returns>Returns Yes, No or Cancel enum value according to user's choice on the dialog box.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor.OpenStorage">
+            <summary>
+            Creates an AsyncFileDataStorage ready for reading.
+            </summary>
+            <returns>Returns a read-only FileDataStorage, or null if user cancelled opening.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor.UpdateStorage(System.IO.Stream)">
+            <summary>
+            Report the use of a new storage.
+            </summary>
+            <param name="newStorage">The new storage in use.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.WindowsDialogDataStateViewProcessor.GetSaveStorage(System.Boolean)">
+            <summary>
+            Creates an AsyncFileDataStorage reading for writing.
+            </summary>
+            <param name="requestNewTarget">Tells whether to let the user to select a different target save storage.</param>
+            <returns>Returns a write-only FileDataStorage, or null if user cancelled saving.</returns>
+        </member>
+        <member name="T:Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor">
+            <summary>
+            Represents the way to manage the state of a data on the model side.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor.OnClose">
+            <summary>
+            Called when data is not used anymore.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor.OnLoad(System.IO.Stream)">
+            <summary>
+            Called when new data is loaded.
+            </summary>
+            <param name="storage">Data storage containing data to be read.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor.OnSave(System.IO.Stream)">
+            <summary>
+            Called when existing data is to be written.
+            </summary>
+            <param name="storage">Data storage to write data.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor.OnDataModified(System.Boolean)">
+            <summary>
+            Called when data modified status changes.
+            </summary>
+            <param name="isModified">Tells whether the data is modified or not.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.DataStateManagement.IDataStateModelProcessor.OnNewData(System.IO.Stream)">
+            <summary>
+            Called when data is reset.
+            </summary>
+            <param name="newStorage">The last data storage created.</param>
+        </member>
+        <member name="T:Bitcraft.UI.Core.DataStateManagement.YesNoCancel">
+            <summary>
+            Represents three possible state Yes, No and Cancel.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.DataStateManagement.YesNoCancel.Yes">
+            <summary>
+            The Yes meaning.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.DataStateManagement.YesNoCancel.No">
+            <summary>
+            The No meaning.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.DataStateManagement.YesNoCancel.Cancel">
+            <summary>
+            The Cancel meaning.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Extensions.CommandExtensions">
+            <summary>
+            Contains helper extenions method for ICommand based types.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Extensions.CommandExtensions.ExecuteIfPossible(System.Windows.Input.ICommand,System.Object)">
+            <summary>
+            Executes a command if possible.
+            This method checks if the command instance is null or not, and checks whether it can be executed before executing it.
+            </summary>
+            <param name="command">The command to check for execution.</param>
+            <param name="parameter">The custom command parameter.</param>
+            <rereturns>Returns true if the command could be executed, false otherwise.</rereturns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Extensions.CommandExtensions.ExecuteIfPossible(System.Windows.Input.ICommand)">
+            <summary>
+            Executes a command if possible.
+            This method checks if the command instance is null or not, and checks whether it can be executed before executing it.
+            </summary>
+            <param name="command">The command to check for execution.</param>
+            <rereturns>Returns true if the command could be executed, false otherwise.</rereturns>
+        </member>
+        <member name="T:Bitcraft.UI.Core.FixedWidthGridViewColumn">
+            <summary>
+            A GridViewColumn that is unresizable.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.FixedWidthGridViewColumn.FixedWidthProperty">
+            <summary>
+            Gets the DependencyProperty for the FixedWidth property.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.FixedWidthGridViewColumn.FixedWidth">
+            <summary>
+            Gets or sets the width of the column.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.Panels.KeyValueGrid">
+            <summary>
+            A Grid panel that automatically creates rows and columns, laying out controls paired by two, as a key and value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Panels.KeyValueGrid.OnInitialized(System.EventArgs)">
+            <summary>
+            Called when initialized.
+            </summary>
+            <param name="e">Event argument.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Panels.KeyValueGrid.OnVisualChildrenChanged(System.Windows.DependencyObject,System.Windows.DependencyObject)">
+            <summary>
+            Called when Visual child changed.
+            </summary>
+            <param name="visualAdded">Added child.</param>
+            <param name="visualRemoved">Removed child.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.Panels.KeyValueGrid.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Called a measure phase is running.
+            </summary>
+            <param name="constraint">The original size contraint.</param>
+            <returns>Returns a new desired size.</returns>
+        </member>
+        <member name="T:Bitcraft.UI.Core.PascalCasingTextBlock">
+            <summary>
+            An implementation of a TextBlock that highlights Pascal-case matches.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.PascalCasingTextBlock.MatchForegroundProperty">
+            <summary>
+            Gets the MatchForeground DependencyProperty.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.PascalCasingTextBlock.MatchBackgroundProperty">
+            <summary>
+            Gets the MatchBackground DependencyProperty.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.UI.Core.PascalCasingTextBlock.MatchLocationsProperty">
+            <summary>
+            Gets the MatchLocations DependencyProperty.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.PascalCasingTextBlock.MatchForeground">
+            <summary>
+            Gets or sets the brush used to render the match texts foreground.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.PascalCasingTextBlock.MatchBackground">
+            <summary>
+            Gets or sets the brush used to render the match texts background.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.PascalCasingTextBlock.MatchLocations">
+            <summary>
+            Gets or sets the Pascal-case match locations.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.IReadOnlyObservableCollection`1">
+            <summary>
+            Represents a readonly observable sequence with count and indexed read access.
+            </summary>
+            <typeparam name="T">The type of items in the observable sequence.</typeparam>
+        </member>
+        <member name="P:Bitcraft.UI.Core.IReadOnlyObservableCollection`1.Count">
+            <summary>
+            Gets the number of items in the observable sequence.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.IReadOnlyObservableCollection`1.Item(System.Int32)">
+            <summary>
+            Gets the item at the given index in the observable sequence.
+            </summary>
+            <param name="index">Index of the item to get.</param>
+            <returns>Returns the item at the given index in the observable sequence.</returns>
+        </member>
+        <member name="T:Bitcraft.UI.Core.ReadOnlyObservableCollection`1">
+            <summary>
+            An implementation of a readonly observable collection.
+            </summary>
+            <typeparam name="T">The type of items in the observable collection.</typeparam>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ReadOnlyObservableCollection`1.#ctor(System.Collections.ObjectModel.ObservableCollection{`0})">
+            <summary>
+            Initializes the ReadOnlyObservableCollection instance.
+            </summary>
+            <param name="collection">The source observable collection.</param>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ReadOnlyObservableCollection`1.GetEnumerator">
+            <summary>
+            Gets the typed IEnumerator to allow iteration over the observable collection.
+            </summary>
+            <returns>Returns the typed IEnumerator to allow iteration over the observable collection.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ReadOnlyObservableCollection`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the typed IEnumerator to allow iteration over the observable collection.
+            </summary>
+            <returns>Returns the typed IEnumerator to allow iteration over the observable collection.</returns>
+        </member>
+        <member name="P:Bitcraft.UI.Core.ReadOnlyObservableCollection`1.Count">
+            <summary>
+            Gets the number of items in the observable collection.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.UI.Core.ReadOnlyObservableCollection`1.Item(System.Int32)">
+            <summary>
+            Gets the item at the given index in the observable collection.
+            </summary>
+            <param name="index">Index of the item to get.</param>
+            <returns>Returns the item at the given index in the observable collection.</returns>
+        </member>
+        <member name="E:Bitcraft.UI.Core.ReadOnlyObservableCollection`1.CollectionChanged">
+            <summary>
+            Occurs when an item is added, removed, changed, moved, or the entire observable collection is refreshed.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.UI.Core.ValueConverters.BooleanInverterValueConverter">
+            <summary>
+            An IValueConverter implementation that invert a boolean input value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ValueConverters.BooleanInverterValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Inverts the boolean input value.
+            </summary>
+            <param name="value">The boolean value to invert.</param>
+            <param name="targetType">The type of the value that have to be returned.</param>
+            <param name="parameter">A custom parameter.</param>
+            <param name="culture">The currently used culture.</param>
+            <returns>Returns true when input is false, returns false when input is true, returns null otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ValueConverters.BooleanInverterValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Inverts the boolean input value.
+            </summary>
+            <param name="value">The boolean value to invert.</param>
+            <param name="targetType">The type of the value that have to be returned.</param>
+            <param name="parameter">A custom parameter.</param>
+            <param name="culture">The currently used culture.</param>
+            <returns>Returns true when input is false, returns false when input is true, returns null otherwise.</returns>
+        </member>
+        <member name="T:Bitcraft.UI.Core.ValueConverters.HiddenVisibilityValueConverter">
+            <summary>
+            An IValueConverter implementation that maps boolean true to Visibility.Visible and false to Visibility.Hidden.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ValueConverters.HiddenVisibilityValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts input boolean to a Visibility enum.
+            </summary>
+            <param name="value">The boolean visibility value to convert.</param>
+            <param name="targetType">The type of the value that have to be returned.</param>
+            <param name="parameter">A custom parameter.</param>
+            <param name="culture">The currently used culture.</param>
+            <returns>Returns Visibility.Visible if value is true, Visibility.Hidden otherwise.</returns>
+            <remarks>Returns DependencyProperty.UnsetValue if the input value is not a boolean.</remarks>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ValueConverters.HiddenVisibilityValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts input Visibility enum to a boolean.
+            </summary>
+            <param name="value">The Visibility enum value to convert.</param>
+            <param name="targetType">The type of the value that have to be returned.</param>
+            <param name="parameter">A custom parameter.</param>
+            <param name="culture">The currently used culture.</param>
+            <returns>Returns true if value is Visibility.Visible, false otherwise.</returns>
+            <remarks>Returns DependencyProperty.UnsetValue if the input value is not a Visibility enum.</remarks>
+        </member>
+        <member name="T:Bitcraft.UI.Core.ValueConverters.CollapsedVisibilityValueConverter">
+            <summary>
+            An IValueConverter implementation that maps boolean true to Visibility.Visible and false to Visibility.Collapsed.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ValueConverters.CollapsedVisibilityValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts input boolean to a Visibility enum.
+            </summary>
+            <param name="value">The boolean visibility value to convert.</param>
+            <param name="targetType">The type of the value that have to be returned.</param>
+            <param name="parameter">A custom parameter.</param>
+            <param name="culture">The currently used culture.</param>
+            <returns>Returns Visibility.Visible if value is true, Visibility.Collapsed otherwise.</returns>
+            <remarks>Returns DependencyProperty.UnsetValue if the input value is not a boolean.</remarks>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ValueConverters.CollapsedVisibilityValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts input Visibility enum to a boolean.
+            </summary>
+            <param name="value">The Visibility enum value to convert.</param>
+            <param name="targetType">The type of the value that have to be returned.</param>
+            <param name="parameter">A custom parameter.</param>
+            <param name="culture">The currently used culture.</param>
+            <returns>Returns true if value is Visibility.Visible, false otherwise.</returns>
+            <remarks>Returns DependencyProperty.UnsetValue if the input value is not a Visibility enum.</remarks>
+        </member>
+        <member name="T:Bitcraft.UI.Core.ViewModelBase">
+            <summary>
+            Base class representing a view model.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ViewModelBase.#ctor">
+            <summary>
+            Initializes the ViewModelBase instance.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ViewModelBase.SetValue``1(``0@,``0,System.String)">
+            <summary>
+            Sets the given value to a field.
+            </summary>
+            <typeparam name="T">The type of value and field.</typeparam>
+            <param name="field">The field to be set.</param>
+            <param name="value">The value to set.</param>
+            <param name="propertyName">The name of the property that is about to be set.</param>
+            <returns>Returns true if the value has changed, false other.</returns>
+        </member>
+        <member name="M:Bitcraft.UI.Core.ViewModelBase.OnPropertyChanged(System.String)">
+            <summary>
+            When overridden, calls the PropertyChanged event.
+            </summary>
+            <param name="propertyName">The name of the property that changed.</param>
+        </member>
+        <member name="E:Bitcraft.UI.Core.ViewModelBase.PropertyChanged">
+            <summary>
+            Raised after the value of a property has changed.
+            </summary>
+        </member>
+    </members>
+</doc>

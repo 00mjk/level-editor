@@ -1,0 +1,278 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:corecvt="clr-namespace:Bitcraft.UI.Core.ValueConverters;assembly=Bitcraft.UI.Core"
+                    xmlns:corepnl="clr-namespace:Bitcraft.UI.Core.Panels;assembly=Bitcraft.UI.Core">
+
+    <corecvt:BooleanInverterValueConverter x:Key="BooleanInverterValueConverter"/>
+
+    <Style x:Key="RootItemBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="BorderBrush" Value="#20000000"/>
+        <Setter Property="BorderThickness" Value="0.75"/>
+        <Setter Property="Background" Value="#08000000"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Padding" Value="4"/>
+    </Style>
+
+    <DataTemplate x:Key="ExportLocationView">
+        <StackPanel>
+            <UniformGrid Columns="2">
+                <DockPanel LastChildFill="True" Margin="3">
+                    <TextBlock Text="Path Mode: " Margin="1" VerticalAlignment="Center"/>
+                    <ComboBox ItemsSource="{Binding AvailablePathModes, Mode=OneTime}" SelectedIndex="{Binding SelectedPathModeIndex}" Margin="1" Padding="4"/>
+                </DockPanel>
+                <DockPanel x:Name="presets" Margin="3">
+                    <TextBlock Text="Preset: " Margin="1" VerticalAlignment="Center"/>
+                    <ComboBox ItemsSource="{Binding AvailablePresets, Mode=OneTime}" SelectedIndex="{Binding SelectedPresetIndex}" Margin="1" Padding="4"/>
+                </DockPanel>
+            </UniformGrid>
+            <DockPanel LastChildFill="True">
+                <!--<Button Content="..." Command="{Binding BrowseCommand, Mode=OneTime}" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Margin="2"/>-->
+                <TextBox Margin="2" Text="{Binding ExportPath, UpdateSourceTrigger=PropertyChanged}" Padding="4"/>
+            </DockPanel>
+            <DockPanel LastChildFill="True">
+                <Button x:Name="btnOpenPath" Content="Open" DockPanel.Dock="Right" Command="{Binding OpenPathCommand, Mode=OneTime}" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="2" Margin="1,1,2,1"/>
+                <TextBlock x:Name="resolveTo" Margin="2" Foreground="Green" FontSize="11" Text="{Binding ResolveToPath, Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="2"/>
+                <TextBlock x:Name="resolveToErrLevel" Margin="2" Foreground="Green" FontSize="11" Text="{Binding ResolvedPathErrorLevel, StringFormat='[{0}]'}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="2"/>
+            </DockPanel>
+        </StackPanel>
+
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding HasPresets}" Value="False">
+                <Setter TargetName="presets" Property="Visibility" Value="Collapsed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ResolvedPathErrorLevel, Mode=OneWay}" Value="DoesNotExist">
+                <Setter TargetName="resolveTo" Property="Foreground" Value="Orange"/>
+                <Setter TargetName="resolveToErrLevel" Property="Foreground" Value="Orange"/>
+                <Setter TargetName="btnOpenPath" Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ResolvedPathErrorLevel, Mode=OneWay}" Value="Invalid">
+                <Setter TargetName="resolveTo" Property="Foreground" Value="Red"/>
+                <Setter TargetName="resolveToErrLevel" Property="Foreground" Value="Red"/>
+                <Setter TargetName="btnOpenPath" Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExportConditionsView">
+        <CheckBox Content="Export enabled blocks only" IsChecked="{Binding ExportEnabledOnly}" Margin="2"/>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="ExportResolutionView">
+        <DockPanel LastChildFill="True">
+            <ToggleButton x:Name="tglRelativeAbsolute" DockPanel.Dock="Top" IsChecked="{Binding IsRelative}" HorizontalAlignment="Left" Margin="2" Padding="4"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton Content="Width" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" IsChecked="{Binding IsWidthBased}" Margin="2" Padding="4,2,2,2" HorizontalContentAlignment="Left"/>
+                <ToggleButton Content="Height" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" IsChecked="{Binding IsWidthBased, Converter={StaticResource BooleanInverterValueConverter}}" Margin="2" Padding="4,2,2,2" HorizontalContentAlignment="Left"/>
+
+                <TextBox Grid.Column="0" Grid.Row="1" x:Name="txtWidthValue" Text="{Binding Value}" Margin="2" Padding="2"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" x:Name="txtWidthUnit" Margin="2" Padding="2"/>
+
+                <TextBox Grid.Column="2" Grid.Row="1" x:Name="txtHeightValue" Text="{Binding Value}" Margin="2" Padding="2"/>
+                <TextBlock Grid.Column="3" Grid.Row="1" x:Name="txtHeightUnit" Margin="2" Padding="2"/>
+
+            </Grid>
+        </DockPanel>
+        
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding IsRelative}" Value="True">
+                <Setter TargetName="tglRelativeAbsolute" Property="Content" Value="Relative"/>
+                <Setter TargetName="tglRelativeAbsolute" Property="ToolTipService.ToolTip" Value="Currently relative. Click to toggle to absolute."/>
+                <Setter TargetName="txtWidthUnit" Property="Text" Value="%"/>
+                <Setter TargetName="txtHeightUnit" Property="Text" Value="%"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsRelative}" Value="False">
+                <Setter TargetName="tglRelativeAbsolute" Property="Content" Value="Absolute"/>
+                <Setter TargetName="tglRelativeAbsolute" Property="ToolTipService.ToolTip" Value="Currently absolute. Click to toggle to relative."/>
+                <Setter TargetName="txtWidthUnit" Property="Text" Value="px"/>
+                <Setter TargetName="txtHeightUnit" Property="Text" Value="px"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsWidthBased}" Value="True">
+                <Setter TargetName="txtHeightValue" Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsWidthBased}" Value="False">
+                <Setter TargetName="txtWidthValue" Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="ExportStripView">
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton Content="Columns" Grid.Column="0" Grid.Row="0" IsChecked="{Binding DefineColumns}" Margin="2" Padding="4,2,2,2" HorizontalContentAlignment="Left"/>
+                <ToggleButton Content="Rows" Grid.Column="1" Grid.Row="0" IsChecked="{Binding DefineColumns, Converter={StaticResource BooleanInverterValueConverter}}" Margin="2" Padding="4,2,2,2" HorizontalContentAlignment="Left"/>
+
+                <TextBox x:Name="txtColumns" Grid.Column="0" Grid.Row="1" Text="{Binding Columns}" Margin="2" Padding="2" IsEnabled="{Binding DefineColumns}"/>
+                <TextBox x:Name="txtRows" Grid.Column="1" Grid.Row="1" Text="{Binding Rows}" Margin="2" Padding="2" IsEnabled="{Binding DefineColumns, Converter={StaticResource BooleanInverterValueConverter}}"/>
+
+            </Grid>
+
+            <corepnl:KeyValueGrid HorizontalAlignment="Left" Margin="4">
+
+                <CheckBox Content="Column Major" IsChecked="{Binding IsColumnMajor}" Margin="2" VerticalAlignment="Center"/>
+                <TextBlock Text=""/>
+
+                <TextBlock Text="Margins:" Margin="2" Padding="2" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Margins}" Margin="2" Padding="2" Width="120" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Background color:" Margin="2" Padding="2" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Background}" Margin="2" Padding="2" Width="120" VerticalAlignment="Center"/>
+
+            </corepnl:KeyValueGrid>
+            
+        </StackPanel>
+
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExportInformationView">
+        <DataTemplate.Resources>
+            <Style TargetType="RadioButton">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <ToggleButton IsChecked="{Binding IsChecked, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Width" Value="35"/>
+                <Setter Property="Height" Value="22"/>
+                <Setter Property="Margin" Value="2"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="MinWidth" Value="120"/>
+                <Setter Property="MaxWidth" Value="200"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </DataTemplate.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Alignments:" Margin="2"/>
+                <UniformGrid Columns="3" Rows="3" HorizontalAlignment="Left">
+                    <RadioButton IsChecked="{Binding TopLeft}"/>
+                    <RadioButton IsChecked="{Binding TopCenter}"/>
+                    <RadioButton IsChecked="{Binding TopRight}"/>
+                    <RadioButton IsChecked="{Binding CenterLeft}"/>
+                    <RadioButton IsChecked="{Binding Center}"/>
+                    <RadioButton IsChecked="{Binding CenterRight}"/>
+                    <RadioButton IsChecked="{Binding BottomLeft}"/>
+                    <RadioButton IsChecked="{Binding BottomCenter}"/>
+                    <RadioButton IsChecked="{Binding BottomRight}"/>
+                </UniformGrid>
+            </StackPanel>
+
+            <corepnl:KeyValueGrid Grid.Column="0">
+
+                <TextBlock Text="Margin: " VerticalAlignment="Center" Margin="2"/>
+                <TextBox Text="{Binding Margin}"/>
+
+                <TextBlock Text="Parent Path: " VerticalAlignment="Center" Margin="2" ToolTipService.ToolTip="The number of level of parent directory to display (0 to not display any)"/>
+                <TextBox Text="{Binding ShowParentPath}" ToolTipService.ToolTip="The number of level of parent directory to display (0 to not display any)"/>
+
+                <TextBlock Text="Font Size: " VerticalAlignment="Center" Margin="2"/>
+                <TextBox Text="{Binding FontSize}"/>
+
+                <TextBlock Text="Text Color: " VerticalAlignment="Center" Margin="2"/>
+                <TextBox Text="{Binding TextColor}"/>
+
+                <TextBlock Text="Text Outline Color: " VerticalAlignment="Center" Margin="2"/>
+                <TextBox Text="{Binding TextOutlineColor}"/>
+
+                <TextBlock Text="Text Outline Thickness: " VerticalAlignment="Center" Margin="2"/>
+                <TextBox Text="{Binding TextOutlineThickness}"/>
+
+            </corepnl:KeyValueGrid>
+
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExportScreenshotsRootView">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="4">
+                <StackPanel>
+
+                    <Border Style="{StaticResource RootItemBorderStyle}">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <TextBlock Text="Location" FontWeight="Bold"/>
+                            </Expander.Header>
+                            <ContentControl Content="{Binding ExportLocation}" ContentTemplate="{StaticResource ExportLocationView}" Focusable="False" Margin="0,8,0,0"/>
+                        </Expander>
+                    </Border>
+
+                    <Border Style="{StaticResource RootItemBorderStyle}">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <TextBlock Text="Conditions" FontWeight="Bold"/>
+                            </Expander.Header>
+                            <ContentControl Content="{Binding ExportConditions}" ContentTemplate="{StaticResource ExportConditionsView}" Focusable="False" Margin="0,8,0,0"/>
+                        </Expander>
+                    </Border>
+
+                    <Border Style="{StaticResource RootItemBorderStyle}">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <TextBlock Text="Resolution" FontWeight="Bold"/>
+                            </Expander.Header>
+                            <ContentControl Content="{Binding ExportResolution}" ContentTemplate="{StaticResource ExportResolutionView}" Focusable="False" Margin="0,8,0,0"/>
+                        </Expander>
+                    </Border>
+                    <Border Style="{StaticResource RootItemBorderStyle}">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <TextBlock Text="Strip" FontWeight="Bold"/>
+                            </Expander.Header>
+                            <ContentControl Content="{Binding ExportStrip}" ContentTemplate="{StaticResource ExportStripView}" Focusable="False" Margin="0,8,0,0"/>
+                        </Expander>
+                    </Border>
+                    <Border Style="{StaticResource RootItemBorderStyle}">
+                        <Expander IsExpanded="True">
+                            <Expander.Header>
+                                <TextBlock Text="Information" FontWeight="Bold"/>
+                            </Expander.Header>
+                            <ContentControl Content="{Binding ExportInformation}" ContentTemplate="{StaticResource ExportInformationView}" Focusable="False" Margin="0,8,0,0"/>
+                        </Expander>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+            
+            <UniformGrid Grid.Row="1" Columns="2" HorizontalAlignment="Right" Margin="8">
+                <Button Content="OK" Margin="4" Padding="6" MinWidth="70" Command="{Binding AcceptCommand}"/>
+                <Button Content="Cancel" Margin="4" Padding="6" MinWidth="70" Command="{Binding CancelCommand}"/>
+            </UniformGrid>
+        </Grid>
+    </DataTemplate>
+    
+</ResourceDictionary>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6983392E-23E8-44A5-9293-D0E9771D1E1C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LayerDataReaderWriter</RootNamespace>
+    <AssemblyName>LayerDataReaderWriter</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\Debug\LayerDataReaderWriter.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>..\bin\Release\LayerDataReaderWriter.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conversion\AggregateFormatConverter.cs" />
+    <Compile Include="Conversion\IFormatConverter.cs" />
+    <Compile Include="Conversion\V2ToV3FormatConverter.cs" />
+    <Compile Include="Conversion\V3ToV4FormatConverter.cs" />
+    <Compile Include="Conversion\V8ToV9FormatConverter.cs" />
+    <Compile Include="Conversion\V7ToV8FormatConverter.cs" />
+    <Compile Include="Conversion\V6ToV7FormatConverter.cs" />
+    <Compile Include="Conversion\V5ToV6FormatConverter.cs" />
+    <Compile Include="Conversion\V4ToV5FormatConverter.cs" />
+    <Compile Include="CustomBinaryReader.cs" />
+    <Compile Include="BaseTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReaderWriterManager.cs" />
+    <Compile Include="V1\DataStructures.cs" />
+    <Compile Include="V1\Reader.cs" />
+    <Compile Include="V1\Writer.cs" />
+    <Compile Include="V2\DataStructures.cs" />
+    <Compile Include="V2\Reader.cs" />
+    <Compile Include="V2\Writer.cs" />
+    <Compile Include="V3\DataStructures.cs" />
+    <Compile Include="V3\Reader.cs" />
+    <Compile Include="V3\Writer.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="V5\DataStructures.cs" />
+    <Compile Include="V5\Reader.cs" />
+    <Compile Include="V5\Writer.cs" />
+    <Compile Include="V4\DataStructures.cs" />
+    <Compile Include="V4\Reader.cs" />
+    <Compile Include="V4\Writer.cs" />
+    <Compile Include="V9\DataStructures.cs" />
+    <Compile Include="V9\Reader.cs" />
+    <Compile Include="V9\Writer.cs" />
+    <Compile Include="V8\DataStructures.cs" />
+    <Compile Include="V8\Reader.cs" />
+    <Compile Include="V8\Writer.cs" />
+    <Compile Include="V7\DataStructures.cs" />
+    <Compile Include="V7\Reader.cs" />
+    <Compile Include="V7\Writer.cs" />
+    <Compile Include="V6\DataStructures.cs" />
+    <Compile Include="V6\Reader.cs" />
+    <Compile Include="V6\Writer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>rem copy $(TargetPath) $(SolutionDir)..\showcaseapp1\Assets\Plugins
+rem copy $(TargetPath) $(SolutionDir)..\showcaseapp2\Assets\Plugins</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

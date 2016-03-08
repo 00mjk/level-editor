@@ -1,0 +1,2289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bitcraft.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Bitcraft.Core.AggregateDisposable">
+            <summary>
+            Represents an aggregation of multiple IDisposable objects.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.#ctor">
+            <summary>
+            Initializes the AggregateDisposable instance.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.#ctor(System.Collections.Generic.IEnumerable{System.IDisposable})">
+            <summary>
+            Initializes the AggregateDisposable instance.
+            </summary>
+            <param name="disposables">A sequence of IDisposable objects.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.#ctor(System.IDisposable[])">
+            <summary>
+            Initializes the AggregateDisposable instance.
+            </summary>
+            <param name="disposables">One or many IDisposable objects.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.Create">
+            <summary>
+            Instanciate an AggregateDisposable object.
+            </summary>
+            <returns>Returns an instance of AggregateDisposable object.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.Add(System.IDisposable)">
+            <summary>
+            Adds an IDisposable object.
+            </summary>
+            <param name="disposable">Instance of IDisposable object.</param>
+            <returns>Returns the current AggregateDisposable for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.Add(System.Collections.Generic.IEnumerable{System.IDisposable})">
+            <summary>
+            Adds many IDisposable objects.
+            </summary>
+            <param name="disposables">Instances of IDisposable object.</param>
+            <returns>Returns the current AggregateDisposable for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.Add(System.IDisposable[])">
+            <summary>
+            Adds one or many IDisposable objects.
+            </summary>
+            <param name="disposables">One or many instances of IDisposable object.</param>
+            <returns>Returns the current AggregateDisposable for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.AggregateDisposable.Dispose">
+            <summary>
+            Disposes all the aggregated IDisposable objects.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.AnonymousCancellable">
+            <summary>
+            An implementation of ICancellable that delegates getter and setter.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Interfaces.ICancellable">
+            <summary>
+            Represent an object that can tell whether a cancellation is requested or not.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.Interfaces.ICancellable.IsCancelled">
+            <summary>
+            Gets or sets the cancellation request.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousCancellable.#ctor(System.Func{System.Boolean})">
+            <summary>
+            Initializes the AnonymousCancellable instance.
+            </summary>
+            <param name="getter">The delegated get method.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousCancellable.#ctor(System.Action{System.Boolean})">
+            <summary>
+            Initializes the AnonymousCancellable instance.
+            </summary>
+            <param name="setter">The delegated set method.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousCancellable.#ctor(System.Func{System.Boolean},System.Action{System.Boolean})">
+            <summary>
+            Initializes the AnonymousCancellable instance.
+            </summary>
+            <param name="getter">The delegated get method.</param>
+            <param name="setter">The delegated set method.</param>
+        </member>
+        <member name="P:Bitcraft.Core.AnonymousCancellable.IsCancelled">
+            <summary>
+            Gets or sets the cancellation request.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.AnonymousComparer`1">
+            <summary>
+            A typed IComparer that delegates comparison.
+            </summary>
+            <typeparam name="T">Type of elements to compare.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousComparer`1.#ctor(System.Func{`0,`0,System.Int32})">
+            <summary>
+            Initializes the AnonymousComparer instance.
+            </summary>
+            <param name="compare">The comparison delegate.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousComparer`1.Compare(`0,`0)">
+            <summary>
+            Compares two elements.
+            </summary>
+            <param name="x">The first comparison element.</param>
+            <param name="y">The second comparison element.</param>
+            <returns>Returns negative, 0 or position number according to x and y comparison.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.AnonymousDisposable">
+            <summary>
+            An implementation of IDisposable that delegates disposal.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousDisposable.#ctor(System.Action)">
+            <summary>
+            Initializes the instance of AnonymousDisposable.
+            </summary>
+            <param name="onDispose">The delegate to be executed on dipose.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousDisposable.#ctor(System.Action,System.Action)">
+            <summary>
+            Initializes the instance of AnonymousDisposable.
+            </summary>
+            <param name="onInit">The delegate to be executed at initialization. (constructor)</param>
+            <param name="onDispose">The delegate to be executed on dipose.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousDisposable.Dispose">
+            <summary>
+            Executes the onDispose delegate.
+            This method is thread-safe.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.AnonymousEqualityComparer`1">
+            <summary>
+            An implementation of IEqualityComparer that delegates checks.
+            </summary>
+            <typeparam name="T">The type to check for equality.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousEqualityComparer`1.#ctor(System.Func{`0,`0,System.Boolean})">
+            <summary>
+            Initializes the AnonymousEqualityComparer instance.
+            </summary>
+            <param name="equals">The delegate that checks equality of the items.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousEqualityComparer`1.#ctor(System.Func{`0,`0,System.Boolean},System.Func{`0,System.Int32})">
+            <summary>
+            Initializes the AnonymousEqualityComparer instance.
+            </summary>
+            <param name="equals">The delegate that checks equality of the items.</param>
+            <param name="getHashCode">The delegate that provide hash code of the items.</param>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousEqualityComparer`1.Equals(`0,`0)">
+            <summary>
+            Tells whether items x and x are equal or not.
+            </summary>
+            <param name="x">First item to check.</param>
+            <param name="y">Second item to check.</param>
+            <returns>Returns true if both items are equal, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.AnonymousEqualityComparer`1.GetHashCode(`0)">
+            <summary>
+            Provides the hash code of the item.
+            </summary>
+            <param name="obj">The item to get the hash code of.</param>
+            <returns>Returns the computed hash code of the item, or 0 if computation failed.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.CommandLineAttributeBase">
+            <summary>
+            Base command line attribute class, for typing identity purpose only.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli">
+            <summary>
+            This class is used for discoverability purpose only.
+            When using a real code editor, when opening the square bracket '[',
+            simply type 'Cli.' and then IntelliSense shows what's available.
+            Much easier than looking for the documentation.
+            Contains all the command line parsing related attributes.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli.CommandAttribute">
+            <summary>
+            Specifies the command(s) recognized for the current member.
+            At least one command must be provided.
+            The Command attribute can be defined several times.
+            It cannot be used with the LastArgument attribute.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Cli.CommandAttribute.#ctor(System.String[])">
+            <summary>
+            Specifies the command(s) recognized for the current member.
+            At least one command must be provided.
+            The Command attribute can be defined several times.
+            It cannot be used with the LastArgument attribute.
+            </summary>
+            <param name="commands">The command(s) recognized for the current memeber.
+            At least one command must be provided.</param>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.Cli.CommandAttribute.Commands">
+            <summary>
+            Gets the command(s) recognized for the current memeber.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli.DescriptionAttribute">
+            <summary>
+            Specifies the description of the command.
+            Passing null or a string containing only white spaces is forbidden.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Cli.DescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Specifies the description of the command.
+            Passing null or a string containing only white spaces is forbidden.
+            </summary>
+            <param name="description">The description of the command.
+            Passing null or a string containing only white spaces is forbidden.</param>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.Cli.DescriptionAttribute.Description">
+            <summary>
+            Gets the description of the command.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli.DefaultAttribute">
+            <summary>
+            Specifies the default value(s) provided at compile-time.
+            At least one element nust be provided when using the Default attribute.
+            Passing null or no value is forbidden.
+            It cannot be used when the member is a flag (single boolean),
+            when used with the ArgumentCount attribute, the latter must have the same number of argument,
+            it cannot be used with the LastArgument attribute.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Cli.DefaultAttribute.#ctor(System.Object[])">
+            <summary>
+            Specifies the default value(s) provided at compile-time.
+            At least one element nust be provided when using the Default attribute.
+            Passing null or no value is forbidden.
+            It cannot be used when the member is a flag (single boolean),
+            when used with the ArgumentCount attribute, the latter must have the same number of argument,
+            it cannot be used with the LastArgument attribute.
+            </summary>
+            <param name="values">The default value(s) provided at compile-time.
+            At least one element nust be provided when using the Default attribute.
+            Passing null or no value is forbidden.</param>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.Cli.DefaultAttribute.Values">
+            <summary>
+            Gets the default value(s) provided at compile-time.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli.RequiredAttribute">
+            <summary>
+            Specifies whether the command must be provided at runtime.
+            It cannot be used when the member is a flag (single boolean),
+            it cannot be used with the Default attribute.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli.LastArgumentAttribute">
+            <summary>
+            Specifies whether the member represents the last argument of the command line provided at runtime.
+            It cannot be used with the Command attribute,
+            it cannot be used when the member is a flag (single boolean),
+            it cannot be used with the Default attribute,
+            it cannot be used with the ArgumentCount attribute.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Cli.ArgumentCountAttribute">
+            <summary>
+            Specifies the number of argument that must be provided at runtime.
+            Values smaller than or equal to zero are forbidden.
+            When used with the Default attribute, the latter must have the same number of default values.
+            It cannot be used with the LastArgument attribute,
+            it cannot be used when the member is a flag. (single boolean)
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Cli.ArgumentCountAttribute.#ctor(System.Int32)">
+            <summary>
+            Specifies the number of argument that must be provided at runtime.
+            Values smaller than or equal to zero are forbidden.
+            When used with the Default attribute, the latter must have the same number of default values.
+            It cannot be used with the LastArgument attribute,
+            it cannot be used when the member is a flag. (single boolean)
+            </summary>
+            <param name="argumentCount">The number of argument that must be provided at runtime.
+            Values smaller than or equal to zero are forbidden.</param>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.Cli.ArgumentCountAttribute.ArgumentCount">
+            <summary>
+            Gets the number of argument that must be provided at runtime.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.CommandLineParserOptions">
+            <summary>
+            Options for the command line parsing process.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.CommandLineParserOptions.IgnoreUnknownCommands">
+            <summary>
+            Tells whether to not output a warning when a command is provided
+            at runtime but has not been defined at compile-time.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.CommandLineParser`1">
+            <summary>
+            Command line parser.
+            </summary>
+            <typeparam name="T">The type of data structure representing the command line arguments.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.CommandLineParser`1.#ctor(Bitcraft.Core.Reporting.IReporter,Bitcraft.Core.CommandLineInterface.CommandLineParserOptions)">
+            <summary>
+            Initializes the CommandLineParser instance.
+            </summary>
+            <param name="reporter">A reporter used to report warnings and errors related to the command line parsing process.</param>
+            <param name="options">Command line parsing options to customize the process.</param>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.CommandLineParser`1.GetUsage">
+            <summary>
+            Produces a string containing the usage documentation.
+            </summary>
+            <returns>Returns a string containing the usage documentation.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.CommandLineParser`1.Parse(System.String[])">
+            <summary>
+            Parses the command line arguments and produces an object with member values set up.
+            </summary>
+            <param name="commandLineElements">The command line arguments.</param>
+            <returns>Returns an object with member values set up.</returns>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.CommandLineParser`1.Elements">
+            <summary>
+            Gets the command line representation of the custom data structure.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.ICommandLineElement">
+            <summary>
+            Represent an available command line command.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.ICommandLineElement.ArgumentCount">
+            <summary>
+            Gets the required argument count.
+            The value -1 means any number of argument.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.ICommandLineElement.Commands">
+            <summary>
+            Gets the recognized command.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.ICommandLineElement.Description">
+            <summary>
+            Gets the description of the command.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.ICommandLineElement.IsLastArgument">
+            <summary>
+            Gets whether this command must be the last on the command line.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.CommandLineInterface.ICommandLineElement.IsRequired">
+            <summary>
+            Gets whether the command is required or not.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Menu">
+            <summary>
+            A factory class to create typed Menu(T) instances.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu.Create``1(``0)">
+            <summary>
+            Creates an entry point menu to work with.
+            </summary>
+            <typeparam name="T">The type of custom data structures that contains the properties to manage.</typeparam>
+            <param name="valuesContainer">The custom data structures that contains the properties to manage.</param>
+            <returns>Returns an entry point menu to work with.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.ClearMode">
+            <summary>
+            Mode to tell the menu when to clear the console, or to not clear it at all.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.CommandLineInterface.ClearMode.PrePrintClear">
+            <summary>
+            Clears the console before printing the menu.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.CommandLineInterface.ClearMode.PostPrintClear">
+            <summary>
+            Clears the console after printing the menu.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.CommandLineInterface.ClearMode.NoClear">
+            <summary>
+            Does not clear the console at all.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.CommandLineInterface.Menu`1">
+            <summary>
+            Represents a console menu containing and managing menu items and user interactions.
+            </summary>
+            <typeparam name="T">The type of custom data structures that contains the properties to manage.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.MenuItem``1(System.String,System.Action{`0,``0},``0[])">
+            <summary>
+            Adds a regular menu item.
+            </summary>
+            <typeparam name="TMember">The type of member to manage.</typeparam>
+            <param name="displayName">The name to show in the shell representing the current parameter.</param>
+            <param name="setter">Describes a way to set value to the custom parameters data structure.</param>
+            <param name="availableValues">All the possible values for the given parameter.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.MenuItemInput``1(System.String,System.Action{`0,``0})">
+            <summary>
+            Adds a menu item with user keyboard input capabilities.
+            </summary>
+            <typeparam name="TMember">The type of member to manage.</typeparam>
+            <param name="displayName">The name to show in the shell representing the current parameter.</param>
+            <param name="setter">Describes a way to set value to the custom parameters data structure.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.MenuItemAction(System.String,System.Action)">
+            <summary>
+            Adds a menu item that run a fonction when a validation key is pressed.
+            </summary>
+            <param name="displayName">The name to show in the shell representing the current action.</param>
+            <param name="func">The function to run when a validation key is pressed.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.MenuItemEnum``1(System.String,System.Action{`0,``0})">
+            <summary>
+            Adds a menu item with available values based on a given enum available values.
+            </summary>
+            <typeparam name="TMember">The type of enum.</typeparam>
+            <param name="displayName">The name to show in the shell representing the current parameter.</param>
+            <param name="setter">Describes a way to set value to the custom parameters data structure.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.MenuItemFlag(System.String,System.Action{`0,System.Boolean})">
+            <summary>
+            Adds a menu item based on boolean values (true or false).
+            </summary>
+            <param name="displayName">The name to show in the shell representing the current parameter.</param>
+            <param name="setter">Describes a way to set value to the custom parameters data structure.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureDefaultColor(System.ConsoleColor)">
+            <summary>
+            Sets the default console foreground color.
+            The default is the console default.
+            </summary>
+            <param name="color">The default foreground color to use.
+            The default is the console default.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureSelectedMenuItemColor(System.ConsoleColor)">
+            <summary>
+            Sets the highlighted menu item foreground color.
+            The defualt is ConsoleColor.Green.
+            </summary>
+            <param name="color">The highlighted menu item foreground color.
+            The defualt is ConsoleColor.Green.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureClear(Bitcraft.Core.CommandLineInterface.ClearMode)">
+            <summary>
+            Sets whether to automatically clear the console before or after printing the menu, or to not clear it at all.
+            The default is PrePrintClear.
+            </summary>
+            <param name="clearMode">Tells whether to automatically clear the console before or after printing the menu, or to not clear it at all.
+            The default is PrePrintClear.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureLoopMenuItems(System.Boolean)">
+            <summary>
+            Sets whether to loop over the menu items when navigating.
+            (going back to the first menu item after moving over the last, and the other way around)
+            The default is true.
+            </summary>
+            <param name="loop">Tells whether to loop over the menu items when navigating.
+            The default is true.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureLoopValues(System.Boolean)">
+            <summary>
+            Sets whether to loop over the values when navigating.
+            (going back to the first available value after moving over the last, and the other way around)
+            The default is true.
+            </summary>
+            <param name="loop">Tells whether to loop over the values when navigating.
+            The default is true.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureExitKeyInfo(System.ConsoleKeyInfo[])">
+            <summary>
+            Sets the keys that are recognized to exit menu processing.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.Escape value.
+            </summary>
+            <param name="keyInfo">The keys that are recognized to exit menu processing.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.Escape value.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigurePreviousMenuItemKeyInfo(System.ConsoleKeyInfo[])">
+            <summary>
+            Sets the keys that are recognized to navigate to the previous menu item.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.UpArrow value.
+            </summary>
+            <param name="keyInfo">The keys that are recognized to navigate to the previous menu item.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.UpArrow value.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureNextMenuItemKeyInfo(System.ConsoleKeyInfo[])">
+            <summary>
+            Sets the keys that are recognized to navigate to the next menu item.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.DownArrow value.
+            </summary>
+            <param name="keyInfo">The keys that are recognized to navigate to the next menu item.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.DownArrow value.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigurePreviousValueKeyInfo(System.ConsoleKeyInfo[])">
+            <summary>
+            Sets the keys that are recognized to navigate to the previous value.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.LeftArrow value.
+            </summary>
+            <param name="keyInfo">The keys that are recognized to navigate to the previous value.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.LeftArrow value.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureNextValueKeyInfo(System.ConsoleKeyInfo[])">
+            <summary>
+            Sets the keys that are recognized to navigate to the next value.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.RightArrow value.
+            </summary>
+            <param name="keyInfo">The keys that are recognized to navigate to the next value.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.RightArrow value.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureInputValidationKeyInfo(System.ConsoleKeyInfo[])">
+            <summary>
+            Sets the keys that are recognized to validate a custom keyboard input value.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.Enter value.
+            </summary>
+            <param name="keyInfo">The keys that are recognized to validate a custom keyboard input value.
+            The default is a ConsoleKeyInfo representing the ConsoleKey.Enter value.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureSelectionCursorString(System.String)">
+            <summary>
+            Sets the string displayed before the selected menu item.
+            The default is '> '. The unselected string will be set to as many spaces as the length of the selectedMenuItemCursorString string.
+            </summary>
+            <param name="selectedMenuItemCursorString">The string displayed before the selected menu item.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.ConfigureSelectionCursorString(System.String,System.String)">
+            <summary>
+            Sets the strings displayed before the selected and unselected menu items.
+            The default is '> ' for selected menu item, and the default for unselected ones is '  ' to match the alignment.
+            </summary>
+            <param name="selectedMenuItemCursorString">The string displayed before the selected menu item.</param>
+            <param name="unselectedMenuItemCursorString">The string displayed before the unselected menu item.</param>
+            <returns>Returns the current menu instance for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.CommandLineInterface.Menu`1.Print">
+            <summary>
+            Prints the menu and handles its interactions.
+            </summary>
+            <returns>Returns wether to keep running the menu processing or not.
+            Basically it returns false when pressing any key recognized as an exit key. (Escape by default)</returns>
+        </member>
+        <member name="T:Bitcraft.Core.ExtensibleEnum">
+            <summary>
+            Represent a string that can be used as an enumeration value.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.ExtensibleEnum.Empty">
+            <summary>
+            An ExtensibleEnum that represent the null value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.#ctor(System.String)">
+            <summary>
+            Initializes the ExtensibleEnum instance.
+            </summary>
+            <param name="value">The value representing the enum.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.ToString">
+            <summary>
+            Gets the value.
+            </summary>
+            <returns>Returns the value.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.Equals(Bitcraft.Core.ExtensibleEnum)">
+            <summary>
+            Checks for equality with another instance of ExtensibleEnum.
+            </summary>
+            <param name="other">The other instance to check equality with.</param>
+            <returns>Returns true if both instances are equal, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.Equals(System.Object)">
+            <summary>
+            Checks for equality with another instance of ExtensibleEnum.
+            </summary>
+            <param name="other">The other instance to check equality with.</param>
+            <returns>Returns true if both instances are equal, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.GetHashCode">
+            <summary>
+            Gets the hash code representing the value.
+            </summary>
+            <returns>Returns the hash code of the value.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.op_Equality(Bitcraft.Core.ExtensibleEnum,Bitcraft.Core.ExtensibleEnum)">
+            <summary>
+            Checks equality of two ExtensibleEnum instances.
+            </summary>
+            <param name="a">Left hand side instance.</param>
+            <param name="b">Right hand side instance.</param>
+            <returns>Returns true if both instances are equal, false otherwise.
+            If both instances are null, false is returned.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.op_Inequality(Bitcraft.Core.ExtensibleEnum,Bitcraft.Core.ExtensibleEnum)">
+            <summary>
+            Checks inequality of two ExtensibleEnum instances.
+            </summary>
+            <param name="a">Left hand side instance.</param>
+            <param name="b">Right hand side instance.</param>
+            <returns>Returns false if both instances are equal, true otherwise.
+            If both instances are null, true is returned.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.op_Explicit(Bitcraft.Core.ExtensibleEnum)~System.String">
+            <summary>
+            Allows explicit cast to a string type.
+            </summary>
+            <param name="instance">The ExtensibleEnum instance to be casted to string.</param>
+            <returns>Returns the string describing the ExtensibleEnum.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnum.op_Explicit(Bitcraft.Core.ExtensibleEnum)~System.Int32">
+            <summary>
+            Allows explicit cast to a int type.
+            </summary>
+            <param name="instance">The ExtensibleEnum instance to be casted to int.</param>
+            <returns>Returns the integer describing the ExtensibleEnum.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.ExtensibleEnumEqualityComparer">
+            <summary>
+            Represent a comparer of ExtensibleEnum.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnumEqualityComparer.Equals(Bitcraft.Core.ExtensibleEnum,Bitcraft.Core.ExtensibleEnum)">
+            <summary>
+            Tells whether two instance of ExtensibleEnum are equal or not.
+            </summary>
+            <param name="x">First instance.</param>
+            <param name="y">Second instance.</param>
+            <returns>Returns true if both instance represent the same value, false otherwise.
+            If both instances are null, false is returned.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ExtensibleEnumEqualityComparer.GetHashCode(Bitcraft.Core.ExtensibleEnum)">
+            <summary>
+            Gets the hash code representing the value.
+            </summary>
+            <param name="obj">Instance from which to get the hash code.</param>
+            <returns>Returns the hash code of the given instance.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Extensions.DictionaryExtensions">
+            <summary>
+            Contains extension methods for the IDictionay(TKey, TValue) interface./>
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.DictionaryExtensions.AddRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.KeyValuePair{``0,``1}[])">
+            <summary>
+            Adds several key/value pairs at once.
+            </summary>
+            <typeparam name="TKey">The type of the key of the pair to add.</typeparam>
+            <typeparam name="TValue">The type of the value of the pair to add.</typeparam>
+            <param name="dictionary">The dictionary to add the pairs to.</param>
+            <param name="items">The sequence of pairs to add.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.DictionaryExtensions.AddRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Adds several key/value pairs at once.
+            </summary>
+            <typeparam name="TKey">The type of the key of the pair to add.</typeparam>
+            <typeparam name="TValue">The type of the value of the pair to add.</typeparam>
+            <param name="dictionary">The dictionary to add the pairs to.</param>
+            <param name="items">The sequence of pairs to add.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Extensions.EnumerableExtensions">
+            <summary>
+            Contains helper extensions methods for IEnumerable based types
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Perform an action for each element a the sequence.
+            </summary>
+            <typeparam name="T">The type of elements in the sequence.</typeparam>
+            <param name="source">The source sequence to perform action on items.</param>
+            <param name="action">The action to perform on each item of the sequence.</param>
+            <returns>Returns the input sequence for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{System.Int32,``0})">
+            <summary>
+            Perform an action for each element a the sequence.
+            </summary>
+            <typeparam name="T">The type of elements in the sequence.</typeparam>
+            <param name="source">The source sequence to perform action on items.</param>
+            <param name="action">The action to perform on each item of the sequence.
+            The integer parameter represent the index of the item in the sequence.</param>
+            <returns>Returns the input sequence for composition purpose.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.EnumerableExtensions.EmptyIfNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns an empty sequence if input sequence is null.
+            This allows to avoid NullReferenceException to be thrown when composing sequences.
+            </summary>
+            <typeparam name="T">The type elements in the sequence.</typeparam>
+            <param name="source">The source sequence to check for nullity.</param>
+            <returns>Returns an empty sequence if input is null, or returns the input sequence as is otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.EnumerableExtensions.IndexOf``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Finds the 0-based index of a matching element in the sequence.
+            </summary>
+            <typeparam name="T">The type elements in the sequence.</typeparam>
+            <param name="source">The source sequence to check for nullity.</param>
+            <param name="match">The match checking function.</param>
+            <returns>Returns the 0-based index of a matching element in the sequence if any, -1 otherwise.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Extensions.StringExtensions">
+            <summary>
+            Contains extensions methods related to the <see cref="T:System.String"/> class.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Checks whether the <paramref name="value"/> parameter is null or contains only white space characters.
+            </summary>
+            <param name="value">The string to check.</param>
+            <returns>Returns true if the string is null or contains only white space characters, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.StringExtensions.ThrowIfNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Throws an ArgumentException exception if the <paramref name="value"/> parameter is null or contains only white space characters.
+            </summary>
+            <param name="value">The string to check.</param>
+            <param name="variableName">The name of the parameter variable on the caller side.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.StringExtensions.OrdinalIgnoreCaseEquals(System.String,System.String)">
+            <summary>
+            Checks for equality of <paramref name="string1"/> and <paramref name="string2"/> with StringComparison.OrdinalIgnoreCase rule.
+            </summary>
+            <param name="string1">First string.</param>
+            <param name="string2">Second string.</param>
+            <returns>Returns true if both strings are equal according to the StringComparison.OrdinalIgnoreCase rule, false otherwise.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Extensions.SynchronizationContextExtensions">
+            <summary>
+            Contains helper extensions methods for SynchronizationContext based types
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.SynchronizationContextExtensions.Send(System.Threading.SynchronizationContext,System.Action)">
+            <summary>
+            Dispatches a synchronous message to a synchronization context.
+            </summary>
+            <param name="context">The SynchronizationContext instance to run action upon.</param>
+            <param name="action">The action (message) to be dispatched.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.SynchronizationContextExtensions.Send``1(System.Threading.SynchronizationContext,System.Action{``0},``0)">
+            <summary>
+            Dispatches a synchronous message to a synchronization context.
+            </summary>
+            <param name="context">The SynchronizationContext instance to run action upon.</param>
+            <param name="action">The action (message) to be dispatched.</param>
+            <param name="state">A customer parameter to be passed to the action.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.SynchronizationContextExtensions.Post(System.Threading.SynchronizationContext,System.Action)">
+            <summary>
+            Dispatches an asynchronous message to a synchronization context.
+            </summary>
+            <param name="context">The SynchronizationContext instance to run action upon.</param>
+            <param name="action">The action (message) to be dispatched.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.SynchronizationContextExtensions.Post``1(System.Threading.SynchronizationContext,System.Action{``0},``0)">
+            <summary>
+            Dispatches an asynchronous message to a synchronization context.
+            </summary>
+            <param name="context">The SynchronizationContext instance to run action upon.</param>
+            <param name="action">The action (message) to be dispatched.</param>
+            <param name="state">A customer parameter to be passed to the action.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.SynchronizationContextExtensions.Return``1(System.Threading.SynchronizationContext,System.Func{``0})">
+            <summary>
+            Dispatches a synchronous message to a synchronization context and returns a produced value.
+            </summary>
+            <param name="context">The SynchronizationContext instance to run action upon.</param>
+            <param name="action">The action (message) to be dispatched.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.SynchronizationContextExtensions.Return``2(System.Threading.SynchronizationContext,System.Func{``1,``0},``1)">
+            <summary>
+            Dispatches a synchronous message to a synchronization context and returns a produced value.
+            </summary>
+            <param name="context">The SynchronizationContext instance to run action upon.</param>
+            <param name="action">The action (message) to be dispatched.</param>
+            <param name="state">A customer parameter to be passed to the action.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Extensions.UriExtensions">
+            <summary>
+            Contains extensions method related to the <see cref="T:System.Uri"/> class.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Extensions.UriExtensions.ExtractOriginalQuery(System.Uri)">
+            <summary>
+            Extract the query part from the original URL string.
+            </summary>
+            <param name="url">The URL to extract the query part from.</param>
+            <returns>Returns the query from the original URL.
+            This method returns null if there is no or empty query,
+            otherwise it returns a space-trimmed query string.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Interfaces.IReadOnlyCollection`1">
+            <summary>
+            Represents a read-only access collection.
+            </summary>
+            <typeparam name="T">The type of items in the collection.</typeparam>
+        </member>
+        <member name="P:Bitcraft.Core.Interfaces.IReadOnlyCollection`1.Count">
+            <summary>
+            Gets the number of items in the collection.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.ILogger">
+            <summary>
+            Represent a message logger.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.ILogger.Log(Bitcraft.Core.Logging.ILogMessage)">
+            <summary>
+            Logs a message.
+            </summary>
+            <param name="logMessage">The message to log.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.ILogger.Clear">
+            <summary>
+            Clears all log messages.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.ILogger`1">
+            <summary>
+            Represent typed a message logger.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.ILogger`1.Log(`0)">
+            <summary>
+            Logs a message.
+            </summary>
+            <param name="logMessage">The message to log.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.LoggerBase">
+            <summary>
+            Base implementation of a logger.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.Log(System.String)">
+            <summary>
+            Logs an informative message.
+            </summary>
+            <remarks>Shortcut method for LogInfo.</remarks>
+            <param name="message">The text message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.Log(System.String,System.Object[])">
+            <summary>
+            Logs an informative message.
+            </summary>
+            <remarks>Shortcut method for LogInfo.</remarks>
+            <param name="format">A formattable message.</param>
+            <param name="args">The arguments of the formattable message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogInfo(System.String)">
+            <summary>
+            Logs an informative message.
+            </summary>
+            <param name="message">The text message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogInfo(System.String,System.Object[])">
+            <summary>
+            Logs an informative message.
+            </summary>
+            <param name="format">A formattable message.</param>
+            <param name="args">The arguments of the formattable message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogInfo(System.Func{System.String})">
+            <summary>
+            Logs an informative message.
+            </summary>
+            <param name="message">The text message producer.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogWarning(System.String)">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="message">The text message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogWarning(System.String,System.Object[])">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="format">A formattable message.</param>
+            <param name="args">The arguments of the formattable message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogWarning(System.Func{System.String})">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="message">The text message producer.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogError(System.String)">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="message">The text message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogError(System.String,System.Object[])">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="format">A formattable message.</param>
+            <param name="args">The arguments of the formattable message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogError(System.Func{System.String})">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="message">The text message producer.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogFatal(System.String)">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name="message">The text message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogFatal(System.String,System.Object[])">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name="format">A formattable message.</param>
+            <param name="args">The arguments of the formattable message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.LogFatal(System.Func{System.String})">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name="message">The text message producer.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.Log(Bitcraft.Core.Logging.ILogMessage)">
+            <summary>
+            Logs a message.
+            </summary>
+            <param name="logMessage">The message to log.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase.Clear">
+            <summary>
+            Clears all log messages.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.LoggerBase`1">
+            <summary>
+            Base implementation of a typed logger.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase`1.Log(`0)">
+            <summary>
+            Logs a typed message.
+            </summary>
+            <param name="logMessage">The typed message to log.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LoggerBase`1.Log(Bitcraft.Core.Logging.ILogMessage)">
+            <summary>
+            Logs a message.
+            The message must be of type T.
+            </summary>
+            <param name="logMessage">The message to log. The message must be of type T.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.NullLogger">
+            <summary>
+            A logger that does strictly nothing.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.NullLogger.Log(Bitcraft.Core.Logging.ILogMessage)">
+            <summary>
+            Logs nothing, nowhere.
+            </summary>
+            <param name="logMessage">The message to NOT log.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.NullLogger.Clear">
+            <summary>
+            Clears nothing.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.Severity">
+            <summary>
+            Represent the level of severity of a log message.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Logging.Severity.Info">
+            <summary>
+            The message is informative.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Logging.Severity.Warning">
+            <summary>
+            The message warns about something.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Logging.Severity.Error">
+            <summary>
+            The message reports an error.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Logging.Severity.Fatal">
+            <summary>
+            The message reports a critical event.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.ILogMessage">
+            <summary>
+            Represent the base elements of a log message.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.Logging.ILogMessage.Severity">
+            <summary>
+            Gets the severity of the log message.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.Logging.ILogMessage.Message">
+            <summary>
+            Gets the message (actually a message producer).
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.LogMessageBase">
+            <summary>
+            Base implementation of a log message.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.LogMessageBase.#ctor(Bitcraft.Core.Logging.Severity)">
+            <summary>
+            Initializes the LogMessage instance.
+            </summary>
+            <param name="severity">The severity of the log message.</param>
+        </member>
+        <member name="P:Bitcraft.Core.Logging.LogMessageBase.Severity">
+            <summary>
+            Gets the severity of the log message.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.Logging.LogMessageBase.Message">
+            <summary>
+            Gets the message (actually a message producer).
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.StaticLogMessage">
+            <summary>
+            Implementation of a log message that always produce the same message.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.StaticLogMessage.#ctor(Bitcraft.Core.Logging.Severity,System.String)">
+            <summary>
+            Initializes the StaticLogMessage instance.
+            </summary>
+            <param name="severity">The severity of the log message.</param>
+            <param name="message">The message to produce.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.StaticLogMessage.#ctor(Bitcraft.Core.Logging.Severity,System.String,System.Object[])">
+            <summary>
+            Initializes the StaticLogMessage instance.
+            </summary>
+            <param name="severity">The severity of the log message.</param>
+            <param name="format">A formattable message.</param>
+            <param name="args">The arguments of the formattable message.</param>
+        </member>
+        <member name="P:Bitcraft.Core.Logging.StaticLogMessage.Message">
+            <summary>
+            Gets the message (actually a message producer).
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Logging.DynamicLogMessage">
+            <summary>
+            Implementation of a log message that delegates message production.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Logging.DynamicLogMessage.#ctor(Bitcraft.Core.Logging.Severity,System.Func{System.String})">
+            <summary>
+            Initializes the DynamicLogMessage instance.
+            </summary>
+            <param name="severity">The severity of the log message.</param>
+            <param name="messageProducer">The delegate that will produce message.</param>
+        </member>
+        <member name="P:Bitcraft.Core.Logging.DynamicLogMessage.Message">
+            <summary>
+            Gets the message (actually a message producer).
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.NullDisposable">
+            <summary>
+            A disposable class that does nothing.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.NullDisposable.Dispose">
+            <summary>
+            Does nothing.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Profiling.DurationMonitorBase">
+            <summary>
+            Represent a monitoring of time between two points in time.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Profiling.DurationMonitorBase.Start">
+            <summary>
+            Begins the time monitoring.
+            </summary>
+            <returns>Returns the disposable to dispose in order to stop time monitoring.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Profiling.DurationMonitorBase.ProduceDisposable(System.Action)">
+            <summary>
+            Starts a stopwatch and produces an IDisposable object that stops the stopwatch and set the Duration member when disposed.
+            </summary>
+            <param name="callback">A callback to notify when the IDisposable is disposed.</param>
+            <returns>Returns an IDisposable object that stops the stopwatch and set the Duration member when disposed.</returns>
+        </member>
+        <member name="P:Bitcraft.Core.Profiling.DurationMonitorBase.Duration">
+            <summary>
+            Gets the amount of time between calls to Start and Dispose, in microseconds.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Profiling.ResetOnStartDurationMonitor">
+            <summary>
+            Represent a monitoring of time between two points in time.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Profiling.ResetOnStartDurationMonitor.Start">
+            <summary>
+            Creates a new time monitoring session each time it is called.
+            </summary>
+            <returns>Returns a new IDisposable to use to stop the time monitoring session.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Profiling.ResetOnDisposeDurationMonitor">
+            <summary>
+            Represent a monitoring of time between two points in time.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Profiling.ResetOnDisposeDurationMonitor.Start">
+            <summary>
+            Creates a time monitoring session if not yet started. Otherwise it has no effect.
+            </summary>
+            <returns>Returns an IDisposable to use to stop the time monitoring session.
+            All subsequent calls to this method return the same IDisposable object, until it is disposed.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.ReadOnlyCollection`1">
+            <summary>
+            Represents a read-only access collection.
+            </summary>
+            <typeparam name="T">The type of items stored in the collection.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.#ctor(System.Collections.Generic.IList{`0})">
+            <summary>
+            Initializes the ReadOnlyCollection instance.
+            </summary>
+            <param name="list">The list to expose as a read-only collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.IndexOf(`0)">
+            <summary>
+            Retrieves the index of the item in the collection, if available.
+            </summary>
+            <param name="item">The item to get the index.</param>
+            <returns>Returns the zero based index of the item if available, or -1 otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.Insert(System.Int32,`0)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="index">Not supported due to the read-only nature of the collection.</param>
+            <param name="item">Not supported due to the read-only nature of the collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.RemoveAt(System.Int32)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="index">Not supported due to the read-only nature of the collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.Add(`0)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="item">Not supported due to the read-only nature of the collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.Clear">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.Contains(`0)">
+            <summary>
+            Checks whether a given item exists in the collection or not.
+            </summary>
+            <param name="item">The item to check for availability in the collection.</param>
+            <returns>Returns true if the item exists in the collection, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the content of the collection to a target array.
+            </summary>
+            <param name="array">The array that receive the items of the collection.</param>
+            <param name="arrayIndex">The index from where to start to write in the target array.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.Remove(`0)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="item">Not supported due to the read-only nature of the collection.</param>
+            <returns>Not supported due to the read-only nature of the collection.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.GetEnumerator">
+            <summary>
+            Gets the enumerator of the collection.
+            </summary>
+            <returns>Returns the enumerator of the collection.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator of the collection.
+            </summary>
+            <returns>Returns the enumerator of the collection.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#Add(System.Object)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="value">Not supported due to the read-only nature of the collection.</param>
+            <returns>Not supported due to the read-only nature of the collection.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#Clear">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#Contains(System.Object)">
+            <summary>
+            Checks whether a given item exists in the collection or not.
+            </summary>
+            <param name="value">The item to check for availability in the collection.</param>
+            <returns>Returns true if the item exists in the collection, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#IndexOf(System.Object)">
+            <summary>
+            Retrieves the index of the item in the collection, if available.
+            </summary>
+            <param name="value">The item to get the index.</param>
+            <returns>Returns the zero based index of the item if available, or -1 otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#Insert(System.Int32,System.Object)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="index">Not supported due to the read-only nature of the collection.</param>
+            <param name="value">Not supported due to the read-only nature of the collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#Remove(System.Object)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="value">Not supported due to the read-only nature of the collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#RemoveAt(System.Int32)">
+            <summary>
+            Not supported due to the read-only nature of the collection.
+            </summary>
+            <param name="index">Not supported due to the read-only nature of the collection.</param>
+        </member>
+        <member name="M:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the content of the collection to a target array.
+            </summary>
+            <param name="array">The array that receive the items of the collection.</param>
+            <param name="index">The index from where to start to write in the target array.</param>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.Item(System.Int32)">
+            <summary>
+            Gets the item at a given index in the collection.
+            </summary>
+            <param name="index">The index of the item to retrieve.</param>
+            <returns>Returns the item at the given index.</returns>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.Count">
+            <summary>
+            Gets the number of items in the collection.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.IsReadOnly">
+            <summary>
+            Always gets true.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#IsFixedSize">
+            <summary>
+            Always gets true.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#IsReadOnly">
+            <summary>
+            Always gets true.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#IList#Item(System.Int32)">
+            <summary>
+            Gets the item at a given index in the collection.
+            </summary>
+            <param name="index">The index of the item to retrieve.</param>
+            <returns>Returns the item at the given index.</returns>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#ICollection#Count">
+            <summary>
+            Gets the number of items in the collection.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#ICollection#IsSynchronized">
+            <summary>
+            Always gets false.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.ReadOnlyCollection`1.System#Collections#ICollection#SyncRoot">
+            <summary>
+            Gets the synchronization object.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.ConsoleReporter">
+            <summary>
+            Represents a reporter that logs events to the console.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.IReporter">
+            <summary>
+            Represents a status reporter.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.IReporter`1">
+            <summary>
+            Represents a status reporter.
+            </summary>
+            <typeparam name="T">The type of report produced by the reporter.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.IReporter`1.Report(`0)">
+            <summary>
+            Reports an event.
+            </summary>
+            <param name="report">Instance containing the report details.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ConsoleReporter.#ctor">
+            <summary>
+            Initializes the ConsoleReporter instance.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ConsoleReporter.#ctor(System.Boolean)">
+            <summary>
+            Initializes the ConsoleReporter instance.
+            </summary>
+            <param name="isColorized">Tells whether the output uses color or not.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ConsoleReporter.Report(Bitcraft.Core.Reporting.Report)">
+            <summary>
+            Report an event.
+            </summary>
+            <param name="report">Instance containing the report details.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.ErrorCheckingReporter">
+            <summary>
+            Represents a reporter that tells whether some Error or Exception reports passed through it.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ErrorCheckingReporter.#ctor(Bitcraft.Core.Reporting.IReporter)">
+            <summary>
+            Initializes the ErrorCheckingReporter instance.
+            </summary>
+            <param name="originalReporter">The original reporter.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ErrorCheckingReporter.Report(Bitcraft.Core.Reporting.Report)">
+            <summary>
+            Report an event.
+            </summary>
+            <param name="report">Instance containing the report details.</param>
+        </member>
+        <member name="P:Bitcraft.Core.Reporting.ErrorCheckingReporter.HasError">
+            <summary>
+            Gets whether Error or Exception events were reported.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.MessageAppenderReporter">
+            <summary>
+            Represents a reporter that intercept reports and appends a message to its original message.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.MessageAppenderReporter.#ctor(System.String,Bitcraft.Core.Reporting.IReporter)">
+            <summary>
+            Initializes the MessageAppenderReporter instance.
+            </summary>
+            <param name="baseMessage">The message to append.</param>
+            <param name="originalReporter">The original reporter.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.MessageAppenderReporter.Report(Bitcraft.Core.Reporting.Report)">
+            <summary>
+            Report an event.
+            </summary>
+            <param name="report">Instance containing the report details.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.NullReporter">
+            <summary>
+            A repoter that does not report anything.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.NullReporter.Report(Bitcraft.Core.Reporting.Report)">
+            <summary>
+            Reports nothing.
+            </summary>
+            <param name="report">Instance containing the report details.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.Report">
+            <summary>
+            Represents a generic report.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.Report.Status">
+            <summary>
+            Gets the status of the report.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.Report.Message">
+            <summary>
+            Gets the message of the report, if any.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.Report.Error">
+            <summary>
+            Gets the exception of the report, if any.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.Report.#ctor(Bitcraft.Core.Reporting.ReportStatus,System.String)">
+            <summary>
+            Initializes the Report instance.
+            </summary>
+            <param name="status">The status of the report. Can be anything but ReportStatus.Exception.</param>
+            <param name="message">The message of the report. Can be null or empty.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.Report.#ctor(System.Exception)">
+            <summary>
+            Initializes the Report instance.
+            </summary>
+            <param name="error">The exception to report.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.ReporterExtensions">
+            <summary>
+            Contains extension methods for the IReporter interface.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.ReportInfo(Bitcraft.Core.Reporting.IReporter,System.String)">
+            <summary>
+            Reports an informatiion.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="message">The report message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.ReportInfo(Bitcraft.Core.Reporting.IReporter,System.String,System.Object[])">
+            <summary>
+            Reports an information.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="format">The report message format.</param>
+            <param name="args">The report message format arguments.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.ReportWarning(Bitcraft.Core.Reporting.IReporter,System.String)">
+            <summary>
+            Reports a warning.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="message">The report message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.ReportWarning(Bitcraft.Core.Reporting.IReporter,System.String,System.Object[])">
+            <summary>
+            Reports a warning.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="format">The report message format.</param>
+            <param name="args">The report message format arguments.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.ReportError(Bitcraft.Core.Reporting.IReporter,System.String)">
+            <summary>
+            Reports an error.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="message">The report message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.ReportError(Bitcraft.Core.Reporting.IReporter,System.String,System.Object[])">
+            <summary>
+            Reports an error.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="format">The report message format.</param>
+            <param name="args">The report message format arguments.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.Report(Bitcraft.Core.Reporting.IReporter,Bitcraft.Core.Reporting.ReportStatus,System.String)">
+            <summary>
+            Reports an event.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="status">The report status.</param>
+            <param name="message">The report message.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.Report(Bitcraft.Core.Reporting.IReporter,Bitcraft.Core.Reporting.ReportStatus,System.String,System.Object[])">
+            <summary>
+            Reports an event.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="status">The report status.</param>
+            <param name="format">The report message format.</param>
+            <param name="args">The report message format arguments.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Reporting.ReporterExtensions.Report(Bitcraft.Core.Reporting.IReporter,System.Exception)">
+            <summary>
+            Reports an event.
+            </summary>
+            <param name="reporter">The source reporter.</param>
+            <param name="error">The report exception.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Reporting.ReportStatus">
+            <summary>
+            Represents the status of a report.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.ReportStatus.Info">
+            <summary>
+            Informative report.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.ReportStatus.Warning">
+            <summary>
+            Warning report.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.ReportStatus.Error">
+            <summary>
+            Error report.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Reporting.ReportStatus.Exception">
+            <summary>
+            Exception raised report.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.SizeEventArgs">
+            <summary>
+            Represent the size argument of an event.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.SizeEventArgs.#ctor(System.Int32)">
+            <summary>
+            Initializes the SizeEventArgs instance.
+            </summary>
+            <param name="newSize">The new size value.</param>
+        </member>
+        <member name="P:Bitcraft.Core.SizeEventArgs.NewSize">
+            <summary>
+            Gets the new size value.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.RingBuffer">
+            <summary>
+            Represent a buffers that loops the reading and writing operations.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.#ctor">
+            <summary>
+            Initializes the RingBuffer instance.
+            The default internal buffer length is 4096 bytes.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.#ctor(System.Int32)">
+            <summary>
+            Initializes the RingBuffer instance.
+            </summary>
+            <param name="bufferSize">The length of the internal buffer, in bytes.</param>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.Clear">
+            <summary>
+            Clears the ring buffer content.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes raw binary data to the ring buffer.
+            </summary>
+            <param name="data">The input data to write to the ring buffer.</param>
+            <param name="offset">The offset in the input data from where to start reading data.</param>
+            <param name="length">The amount of bytes to read in the input data from the start offset.</param>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.Read(System.Int32)">
+            <summary>
+            Reads data from the ring buffer and output it.
+            </summary>
+            <param name="length">The amount of bytes to read from the ring buffer.</param>
+            <returns>Returns the read data from the ring buffer.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.Skip(System.Int32)">
+            <summary>
+            Skip the given amount of bytes from the ring buffer, as a read operation.
+            Used to advance the read cursor in the ring buffer without copying data (seek).
+            </summary>
+            <param name="length">The amount of bytes to skip.</param>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.OnSizeChanged(Bitcraft.Core.SizeEventArgs)">
+            <summary>
+            Called when the size of the ring buffer changes.
+            </summary>
+            <param name="e">Event argument.</param>
+        </member>
+        <member name="M:Bitcraft.Core.RingBuffer.OnMaximumCapacityReached(System.EventArgs)">
+            <summary>
+            Called when the maximum capacity of the internal buffer is reached.
+            </summary>
+            <param name="e">Event argument.</param>
+        </member>
+        <member name="E:Bitcraft.Core.RingBuffer.SizeChanged">
+            <summary>
+            Raised when the size of the ring buffer has changed.
+            </summary>
+        </member>
+        <member name="E:Bitcraft.Core.RingBuffer.MaximumCapacityReached">
+            <summary>
+            Raised when the capacity of the buffer is reached and thus write operations loops.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.RingBuffer.Size">
+            <summary>
+            Gets the size of the ring buffer.
+            The size is the amount of bytes currently written and thus readable.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.RingBuffer.Capacity">
+            <summary>
+            Get the length of the internal buffer used to loops the writing and reading operations.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.BinaryRingBuffer">
+            <summary>
+            Represent a ring buffer that can read and write primitives as binary data.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.#ctor">
+            <summary>
+            Initializes the BinaryRingBuffer instance.
+            The default internal buffer length is 4096 bytes.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.#ctor(System.Int32)">
+            <summary>
+            Initializes the BinaryRingBuffer instance.
+            </summary>
+            <param name="bufferSize">The length of the internal buffer, in bytes.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Boolean)">
+            <summary>
+            Writes a one-byte boolean value, with 0 representing false and 1 representing true.
+            </summary>
+            <param name="value">The boolean value to write (0 or 1).</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Byte)">
+            <summary>
+            Writes an unsigned byte.
+            </summary>
+            <param name="value">The unsigned byte value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Decimal)">
+            <summary>
+            Writes a decimal value.
+            </summary>
+            <param name="value">The decimal value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Double)">
+            <summary>
+            Writes a double precision floating point value.
+            </summary>
+            <param name="value">The double precision floating point value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Single)">
+            <summary>
+            Writes a single precision floating point value.
+            </summary>
+            <param name="value">The single precision floating point value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Int32)">
+            <summary>
+            Writes a 32 bits signed integer value.
+            </summary>
+            <param name="value">The 32 bits signed integer value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Int64)">
+            <summary>
+            Writes a 64 bits signed integer value.
+            </summary>
+            <param name="value">The 64 bits signed integer value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.Int16)">
+            <summary>
+            Writes a 16 bits signed integer value.
+            </summary>
+            <param name="value">The 16 bits signed integer value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.UInt32)">
+            <summary>
+            Writes a 32 bits unsigned integer value.
+            </summary>
+            <param name="value">The 32 bits unsigned integer value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.UInt64)">
+            <summary>
+            Writes a 64 bits unsigned integer value.
+            </summary>
+            <param name="value">The 64 bits unsigned integer value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.Write(System.UInt16)">
+            <summary>
+            Writes a 16 bits unsigned integer value.
+            </summary>
+            <param name="value">The 16 bits unsigned integer value to write.</param>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadBool">
+            <summary>
+            Reads a one-byte boolean value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadByte">
+            <summary>
+            Reads an unsigned byte.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadDecimal">
+            <summary>
+            Reads a decimal value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadDouble">
+            <summary>
+            Reads a double precision floating point value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadSingle">
+            <summary>
+            Reads a single precision floating point value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadInt32">
+            <summary>
+            Reads a 32 bits signed integer value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadInt64">
+            <summary>
+            Reads a 64 bits signed integer value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadInt16">
+            <summary>
+            Reads a 16 bits signed integer value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadUInt32">
+            <summary>
+            Reads a 32 bits unsigned integer value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadUInt64">
+            <summary>
+            Reads a 64 bits unsigned integer value.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.BinaryRingBuffer.ReadUInt16">
+            <summary>
+            Reads a 16 bits unsigned integer value.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.JsonUtility">
+            <summary>
+            Contains utility methods relared to JSON format.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Char@)">
+            <summary>
+            Try to get value as a character.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result character value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.SByte@)">
+            <summary>
+            Try to get value as a signed byte.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result signed byte value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Byte@)">
+            <summary>
+            Try to get value as a byte.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result byte value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Int16@)">
+            <summary>
+            Try to get value as a signed short.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result signed short value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.UInt16@)">
+            <summary>
+            Try to get value as an unsigned short.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result unsigned short value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Int32@)">
+            <summary>
+            Try to get value as a signed integer.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result signed integer value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.UInt32@)">
+            <summary>
+            Try to get value as an unsigned integer.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result unsigned integer value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Int64@)">
+            <summary>
+            Try to get value as a signed long.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result signed long value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.UInt64@)">
+            <summary>
+            Try to get value as an unsigned long.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result unsigned long value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Single@)">
+            <summary>
+            Try to get value as a single precision floating point.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result float value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Double@)">
+            <summary>
+            Try to get value as a double precision floating point.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result double value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.TryGetAs(System.Object,System.Decimal@)">
+            <summary>
+            Try to get value as a decimal.
+            </summary>
+            <param name="value">The input value where type is unknown until runtime.</param>
+            <param name="result">The result decimal value.</param>
+            <returns>Returns true if input value can be converted to desired type, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.ChangeType``1(System.Object)">
+            <summary>
+            Changes the type of a given weakly typed value.
+            </summary>
+            <typeparam name="TOutput">The expected output type.</typeparam>
+            <param name="value">The weakly typed value.</param>
+            <returns>Returns the output value, strongly typed.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.ChangeType``1(System.Object,System.IFormatProvider)">
+            <summary>
+            Changes the type of a given weakly typed value.
+            </summary>
+            <typeparam name="TOutput">The expected output type.</typeparam>
+            <param name="value">The weakly typed value.</param>
+            <param name="provider">Format provider to customize value conversion.</param>
+            <returns>Returns the output value, strongly typed.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.ChangeType(System.Object,System.Type)">
+            <summary>
+            Changes the type of a given weakly typed value.
+            </summary>
+            <param name="value">The weakly typed value.</param>
+            <param name="outputType">The expected output type.</param>
+            <returns>Returns the output value, weakly typed.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.JsonUtility.ChangeType(System.Object,System.Type,System.IFormatProvider)">
+            <summary>
+            Changes the type of a given weakly typed value.
+            </summary>
+            <param name="value">The weakly typed value.</param>
+            <param name="outputType">The expected output type.</param>
+            <param name="provider">Format provider to customize value conversion.</param>
+            <returns>Returns the output value, weakly typed.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.PascalCasing">
+            <summary>
+            Contains utility method related to Pascal-case matching.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.Split(System.String,System.Char[])">
+            <summary>
+            Splits a string into words, based on Pascal casing.
+            </summary>
+            <param name="str">The string to split.</param>
+            <param name="additionalSplitCharacters">Additional split characters to take into account when spliting.</param>
+            <returns>Returns an array of WordInfo structures, providing the split words,
+            along with their position in the original string.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.IsMatching(System.String,System.String)">
+            <summary>
+            Checks whether <paramref name="searchText"/> Pascal-case matches with the <paramref name="line"/>.
+            </summary>
+            <param name="line">A whole line of text to check for match within.</param>
+            <param name="searchText">The text to check whether matching the line or not.</param>
+            <returns>Returns true if the <paramref name="searchText"/> matches, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.IsMatching(System.String,System.String,Bitcraft.Core.Utility.PascalCasing.MatchLocation[]@)">
+            <summary>
+            Checks whether <paramref name="searchText"/> Pascal-case matches with the <paramref name="line"/>.
+            </summary>
+            <param name="line">A whole line of text to check for match within.</param>
+            <param name="searchText">The text to check whether matching the line or not.</param>
+            <param name="matchLocations">The matching locations within the <paramref name="line"/> string.</param>
+            <returns>Returns true if the <paramref name="searchText"/> matches, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.IsMatching(System.String,System.String,System.StringComparison)">
+            <summary>
+            Checks whether <paramref name="searchText"/> Pascal-case matches with the <paramref name="line"/>.
+            </summary>
+            <param name="line">A whole line of text to check for match within.</param>
+            <param name="searchText">The text to check whether matching the line or not.</param>
+            <param name="stringComparison">The way to compare strings when matching happens.</param>
+            <returns>Returns true if the <paramref name="searchText"/> matches, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.IsMatching(System.String,System.String,System.StringComparison,Bitcraft.Core.Utility.PascalCasing.MatchLocation[]@)">
+            <summary>
+            Checks whether <paramref name="searchText"/> Pascal-case matches with the <paramref name="line"/>.
+            </summary>
+            <param name="line">A whole line of text to check for match within.</param>
+            <param name="searchText">The text to check whether matching the line or not.</param>
+            <param name="stringComparison">The way to compare strings when matching happens.</param>
+            <param name="matchLocations">The matching locations within the <paramref name="line"/> string.</param>
+            <returns>Returns true if the <paramref name="searchText"/> matches, false otherwise.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.IsMatching(Bitcraft.Core.Utility.PascalCasing.WordInfo[],System.String,System.StringComparison,Bitcraft.Core.Utility.PascalCasing.MatchLocation[]@)">
+            <summary>
+            Checks whether <paramref name="searchText"/> Pascal-case matches with the <paramref name="lineWords"/>.
+            </summary>
+            <param name="lineWords">A custom array of WordInfo instances.</param>
+            <param name="searchText">The text to check whether matching the line or not.</param>
+            <param name="stringComparison">The way to compare strings when matching happens.</param>
+            <param name="matchLocations">The matching locations within the <paramref name="lineWords"/> words.</param>
+            <returns>Returns true if the <paramref name="searchText"/> matches, false otherwise.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.PascalCasing.WordInfo">
+            <summary>
+            Stores a word and its position from within a larger string.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.PascalCasing.WordInfo.Word">
+            <summary>
+            Gets the word from within a larger string.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.PascalCasing.WordInfo.Position">
+            <summary>
+            Gets the start position of the word from within a larger string.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.WordInfo.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes the WordInfo instance.
+            </summary>
+            <param name="word">The word from within a larger string.</param>
+            <param name="position">The start position of the word from within a larger string.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.WordInfo.ToString">
+            <summary>
+            Provides an easy to understand representation of the WordInfo structure.
+            </summary>
+            <returns>Returns an easy to understand representation of the WordInfo structure.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.PascalCasing.MatchLocation">
+            <summary>
+            Represents an indexation of a word in a string.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.PascalCasing.MatchLocation.Position">
+            <summary>
+            Gets the start position of the word in a string.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.PascalCasing.MatchLocation.Length">
+            <summary>
+            Gets the length of the word in a string.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.MatchLocation.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes the MatchLocation instance.
+            </summary>
+            <param name="position">The start position of the word in a string.</param>
+            <param name="length">The length of the word in a string.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.PascalCasing.MatchLocation.ToString">
+            <summary>
+            Provides an easy to understand representation of the MatchLocation structure.
+            </summary>
+            <returns>Returns an easy to understand representation of the MatchLocation structure.</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.ColumnInfo`1">
+            <summary>
+            Represents a column of data.
+            </summary>
+            <typeparam name="T">The type of item for the whole data table.</typeparam>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnInfo`1.HeaderDisplayName">
+            <summary>
+            Gets the display name of the column header.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnInfo`1.Accessor">
+            <summary>
+            Gets an accessor that provides a way to get the proper column data efficiently.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnInfo`1.HeaderHorizontalAlignment">
+            <summary>
+            Gets the horizontal alignment of text in the column header.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnInfo`1.ContentHorizontalAlignment">
+            <summary>
+            Gets the horizontal alignment of the values in the column content.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.ColumnInfo`1.#ctor(System.String,System.Func{`0,System.Object},Bitcraft.Core.Utility.ColumnHorizontalAlignment,Bitcraft.Core.Utility.ColumnHorizontalAlignment)">
+            <summary>
+            Initializes the ColumnInfo instance.
+            </summary>
+            <param name="headerDisplayName">The display name of the column header.</param>
+            <param name="accessor">An accessor that provides a way to get the proper column data efficiently.</param>
+            <param name="headerHorizontalAlignment">The alignment of text in the column header.</param>
+            <param name="contentHorizontalAlignment">The alignment of the values in the column content.</param>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.ColumnHorizontalAlignment">
+            <summary>
+            Represent horizontal alignment in TextTable columns.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnHorizontalAlignment.Left">
+            <summary>
+            Aligned to left.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnHorizontalAlignment.CenterLeft">
+            <summary>
+            Centered. (with left alignment priorty on fractional position)
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnHorizontalAlignment.CenterRight">
+            <summary>
+            Centered. (with right alignment priorty on fractional position)
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnHorizontalAlignment.Right">
+            <summary>
+            Aligned to right.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.ColumnVerticalAlignment">
+            <summary>
+            Represent vertical alignment in TextTable columns.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnVerticalAlignment.Top">
+            <summary>
+            Aligned to top.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnVerticalAlignment.CenterTop">
+            <summary>
+            Centered. (with top alignment priorty on fractional position)
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnVerticalAlignment.CenterBottom">
+            <summary>
+            Centered. (with bottom alignment priorty on fractional position)
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.ColumnVerticalAlignment.Bottom">
+            <summary>
+            Aligned to bottom.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.HeaderStyle">
+            <summary>
+            Represent the way the header is drawm.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.HeaderStyle.None">
+            <summary>
+            No header decoration.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.HeaderStyle.TextOnly">
+            <summary>
+            Only the header text elements are drawn, without any other decorations.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.HeaderStyle.Underline">
+            <summary>
+            Header text elements are underlined.
+            </summary>
+        </member>
+        <member name="F:Bitcraft.Core.Utility.HeaderStyle.Frame">
+            <summary>
+            A full frame line is drawn bellow the header text elements.
+            </summary>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.TextTable">
+            <summary>
+            Factory to create TextTable(T) instances.
+            </summary>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable.Create``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Creates an instance of TextTable(T).
+            </summary>
+            <typeparam name="T">The type of item for the whole data table.</typeparam>
+            <param name="data">A sequence of data items to produce the table for.</param>
+            <returns>Returns an instance of TextTable(T).</returns>
+        </member>
+        <member name="T:Bitcraft.Core.Utility.TextTable`1">
+            <summary>
+            Contains methods to produce a textual data table.
+            </summary>
+            <typeparam name="T">The type of item for the whole data table.</typeparam>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes the TextTable(T) instance.
+            </summary>
+            <param name="data">A sequence of data items to produce the table for.</param>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.Column(System.String,System.Func{`0,System.Object})">
+            <summary>
+            Adds a new column definition.
+            </summary>
+            <param name="headerDisplayName">The display name of the column header.</param>
+            <param name="accessor">An accessor that provides a way to get the proper column data efficiently.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.Column(System.String,System.Func{`0,System.Object},Bitcraft.Core.Utility.ColumnHorizontalAlignment)">
+            <summary>
+            Adds a new column definition.
+            </summary>
+            <param name="headerDisplayName">The display name of the column header.</param>
+            <param name="accessor">An accessor that provides a way to get the proper column data efficiently.</param>
+            <param name="alignment">The alignment of both header text and content values in the column.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.Column(System.String,System.Func{`0,System.Object},Bitcraft.Core.Utility.ColumnHorizontalAlignment,Bitcraft.Core.Utility.ColumnHorizontalAlignment)">
+            <summary>
+            Adds a new column definition.
+            </summary>
+            <param name="headerDisplayName">The display name of the column header.</param>
+            <param name="accessor">An accessor that provides a way to get the proper column data efficiently.</param>
+            <param name="headerAlignment">The alignment of header text in the column header.</param>
+            <param name="contentAlignment">The alignment of values in the column content.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureHeaderVerticalAlignment(Bitcraft.Core.Utility.ColumnVerticalAlignment)">
+            <summary>
+            Configures the vertical alignment of text in the column header.
+            </summary>
+            <param name="headerVerticalAlignment">The vertical alignment of text in the column header.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureContentVerticalAlignment(Bitcraft.Core.Utility.ColumnVerticalAlignment)">
+            <summary>
+            Configures the vertical alignment of text in the column content.
+            </summary>
+            <param name="contentVerticalAlignment">The vertical alignment of text in the column content.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureDisplayHeader(Bitcraft.Core.Utility.HeaderStyle)">
+            <summary>
+            Configures how to draw the header.
+            </summary>
+            <param name="headerStyle">Describes how to draw the header.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureDisplayTopLine(System.Boolean)">
+            <summary>
+            Configures whether to display the top border line or not.
+            </summary>
+            <param name="displayTopLine">Whether to display the top border line or not.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureDisplayBottomLine(System.Boolean)">
+            <summary>
+            Configures whether to display the bottom border line or not.
+            </summary>
+            <param name="displayBottomLine">Whether to display the bottom border line or not.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureDisplayLeftLine(System.Boolean)">
+            <summary>
+            Configures whether to display the left border line or not.
+            </summary>
+            <param name="displayLeftLine">Whether to display the left border line or not.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureDisplayRightLine(System.Boolean)">
+            <summary>
+            Configures whether to display the right border line or not.
+            </summary>
+            <param name="displayRightLine">Whether to display the right border line or not.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.ConfigureDisplayInnerVerticalLines(System.Boolean)">
+            <summary>
+            Configures whether to display the inner vertical lines or not.
+            </summary>
+            <param name="displayInnerVerticalLines">Whether to display the inner vertical lines or not.</param>
+            <returns>Returns the current TextTable(T) instance for composition.</returns>
+        </member>
+        <member name="M:Bitcraft.Core.Utility.TextTable`1.Generate">
+            <summary>
+            Produces a string that contains the data layed out in a data table.
+            </summary>
+            <returns>Returns a string that contains the data layed out in a data table.</returns>
+        </member>
+        <member name="P:Bitcraft.Core.Utility.TextTable`1.HeaderVerticalAlignment">
+            <summary>
+            Gets the vertical alignment of text in the column header.
+            </summary>
+        </member>
+        <member name="P:Bitcraft.Core.Utility.TextTable`1.ContentVerticalAlignment">
+            <summary>
+            Gets the vertical alignment of the values in the column content.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="LevelEditor.BuiltinCanvasRenderers.ElementIdentifierConfigurationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:btcpnl="clr-namespace:Bitcraft.UI.Core.Panels;assembly=Bitcraft.UI.Core"
+        Title="Element Identifier Configuration" MinWidth="200" MinHeight="160" Background="WhiteSmoke" WindowStartupLocation="CenterScreen" Height="241" Width="399">
+    <DockPanel LastChildFill="True">
+
+        <UniformGrid DockPanel.Dock="Bottom" Columns="2" HorizontalAlignment="Right" Margin="8">
+            <Button Content="OK" Margin="3" Padding="3" MinWidth="70" Command="{Binding AcceptCommand, Mode=OneTime, RelativeSource={RelativeSource AncestorType=Window}}"/>
+            <Button Content="Cancel" Margin="3" Padding="3" MinWidth="70" Command="{Binding CancelCommand, Mode=OneTime, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        </UniformGrid>
+
+        <StackPanel HorizontalAlignment="Left" Margin="8">
+            <CheckBox Content="Enable (Ctrl+E)" HorizontalAlignment="Left"  Margin="10,5,0,0"  VerticalAlignment="Center" IsChecked="{Binding IsEnabled}" />
+            <CheckBox Content="Selected Only" HorizontalAlignment="Left"  Margin="10,5,0,0"  VerticalAlignment="Center" IsChecked="{Binding SelectedOnly}" />
+            <StackPanel Orientation="Horizontal" Margin="10,5,0,0">
+                <TextBlock Text="Types:" Margin="2" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Types, UpdateSourceTrigger=PropertyChanged}" MinWidth="120" Margin="2" Padding="2" VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+
+    </DockPanel>
+</Window>

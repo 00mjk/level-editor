@@ -1,0 +1,6 @@
+﻿<Window x:Class="LevelEditor.ExportScreenshotsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Export Screenshots" Width="550" Height="800" Icon="icon.ico" SnapsToDevicePixels="True" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Background="WhiteSmoke">
+    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource ExportScreenshotsRootView}" Focusable="False"/>
+</Window>
