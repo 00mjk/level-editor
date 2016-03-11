@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<ProjectSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Version>1</Version>
+    <GameBoard>
+        <GameBoardWidth>1000</GameBoardWidth>
+        <GameBoardHeight>440</GameBoardHeight>
+        <GridSnapX>20</GridSnapX>
+        <GridSnapY>20</GridSnapY>
+        <Zoom>1.1</Zoom>
+        <SelectNewlyCreatedBlock>true</SelectNewlyCreatedBlock>
+        <FlagSemantics>
+            <FlagSemanticSettings>
+                <FlagNumber>0</FlagNumber>
+                <Text>Sample flag</Text>
+            </FlagSemanticSettings>
+        </FlagSemantics>
+        <Components>
+            <ComponentSettings>
+                <ShortToolTipText>H</ShortToolTipText>
+                <Type>HorizontalMotion</Type>
+                <Properties>
+                    <Property>
+                        <Name>Duration</Name>
+                        <Type>float</Type>
+                        <Type>The time to complete the motion, in seconds (loop excluded)</Type>
+                    </Property>
+                    <Property>
+                        <Name>Range</Name>
+                        <Type>float</Type>
+                        <Description>Defines the range of movement of the object, in grid cell unit</Description>
+                    </Property>
+                    <Property>
+                        <Name>LoopType</Name>
+                        <Type>string</Type>
+                        <Values>
+                            <string>OnceHalfWay</string>
+                            <string>OnceGoAndBack</string>
+                            <string>Forever</string>
+                        </Values>
+                    </Property>
+                </Properties>
+            </ComponentSettings>
+            <ComponentSettings>
+                <ShortToolTipText>V</ShortToolTipText>
+                <Type>VerticalMotion</Type>
+                <Properties>
+                    <Property>
+                        <Name>Duration</Name>
+                        <Type>float</Type>
+                        <Type>The time to complete the motion, in seconds (loop excluded)</Type>
+                    </Property>
+                    <Property>
+                        <Name>Range</Name>
+                        <Type>float</Type>
+                        <Description>Defines the range of movement of the object, in grid cell unit</Description>
+                    </Property>
+                    <Property>
+                        <Name>LoopType</Name>
+                        <Type>string</Type>
+                        <Values>
+                            <string>OnceHalfWay</string>
+                            <string>OnceGoAndBack</string>
+                            <string>Forever</string>
+                        </Values>
+                    </Property>
+                </Properties>
+            </ComponentSettings>
+            <ComponentSettings>
+                <ShortToolTipText>A</ShortToolTipText>
+                <Type>AlphaVariation</Type>
+                <Properties>
+                    <Property>
+                        <Name>MinAlpha</Name>
+                        <Type>float</Type>
+                        <Description>The transparency reached when getting invisible, between 0 and 1 included</Description>
+                    </Property>
+                    <Property>
+                        <Name>MaxAlpha</Name>
+                        <Type>float</Type>
+                        <Description>The transparency reached when getting visible, between 0 and 1 included</Description>
+                    </Property>
+                    <Property>
+                        <Name>FadeDuration</Name>
+                        <Type>float</Type>
+                        <Description>The duration to fade in/out between extrema, in seconds</Description>
+                    </Property>
+					<Property>
+                        <Name>ExtremumDuration</Name>
+                        <Type>float</Type>
+                        <Description>The duration the object stays at the extrema, in seconds</Description>
+                    </Property>
+                </Properties>
+            </ComponentSettings>
+        </Components>
+        <LayerSettings>
+            <Default>1</Default>
+            <Layers>
+                <Layer>
+                    <Number>0</Number>
+                    <Name>Background</Name>
+                </Layer>
+                <Layer>
+                    <Number>1</Number>
+                    <Name>Animals</Name>
+                </Layer>
+            </Layers>
+        </LayerSettings>
+    </GameBoard>
+    <GameElements>
+        <Elements>
+        <!--
+			DefaultOutputDpiX must be set using the texture unit multiplied by 96/20
+			e.g.: for a 1x1 block texture of 256x256 pixels, the DefaultOutputDpiX is
+			256 * 96 / 20 = 1229
+        -->
+
+            <LayerBlockElementDefinition>
+                <Categories>All, Objects</Categories>
+                <Type>0</Type>
+                <IconFullPath>../Assets/Textures/box.png</IconFullPath>
+                <DefaultScaleX>1</DefaultScaleX>
+                <DefaultScaleY>1</DefaultScaleY>
+                <DefaultPivotX>0</DefaultPivotX>
+                <DefaultPivotY>0</DefaultPivotY>
+                <DefaultOutputDpiX>1229</DefaultOutputDpiX>
+                <DefaultOutputDpiY>1229</DefaultOutputDpiY>
+            </LayerBlockElementDefinition>
+			
+			<LayerBlockElementDefinition>
+                <Categories>All, Objects</Categories>
+                <Type>1</Type>
+                <IconFullPath>../Assets/Textures/rock.png</IconFullPath>
+                <DefaultScaleX>1</DefaultScaleX>
+                <DefaultScaleY>1</DefaultScaleY>
+                <DefaultPivotX>0</DefaultPivotX>
+                <DefaultPivotY>0</DefaultPivotY>
+                <DefaultOutputDpiX>1229</DefaultOutputDpiX>
+                <DefaultOutputDpiY>1229</DefaultOutputDpiY>
+            </LayerBlockElementDefinition>
+			
+            <LayerBlockElementDefinition>
+                <Categories>All, Animals</Categories>
+                <Type>2</Type>
+                <IconFullPath>../Assets/Textures/frog.png</IconFullPath>
+                <DefaultScaleX>1</DefaultScaleX>
+                <DefaultScaleY>1</DefaultScaleY>
+                <DefaultPivotX>0</DefaultPivotX>
+                <DefaultPivotY>0</DefaultPivotY>
+                <DefaultOutputDpiX>1229</DefaultOutputDpiX>
+                <DefaultOutputDpiY>1229</DefaultOutputDpiY>
+            </LayerBlockElementDefinition>
+			
+            <LayerBlockElementDefinition>
+                <Categories>All, Animals</Categories>
+                <Type>3</Type>
+                <IconFullPath>../Assets/Textures/owl.png</IconFullPath>
+                <DefaultScaleX>1</DefaultScaleX>
+                <DefaultScaleY>1</DefaultScaleY>
+                <DefaultPivotX>0</DefaultPivotX>
+                <DefaultPivotY>0</DefaultPivotY>
+                <DefaultOutputDpiX>1229</DefaultOutputDpiX>
+                <DefaultOutputDpiY>1229</DefaultOutputDpiY>
+            </LayerBlockElementDefinition>
+		</Elements>
+    </GameElements>
+
+    <Screenshots>
+        <Location>
+            <ExportPath>..\Design</ExportPath>
+            <PathMode>0</PathMode>
+            <ExportPathPresets>
+                <string>..\Design</string>
+            </ExportPathPresets>
+        </Location>
+        <Resolution>
+            <IsRelative>true</IsRelative>
+            <IsWidthBased>true</IsWidthBased>
+            <Value>100</Value>
+        </Resolution>
+        <Strip>
+            <Columns>1</Columns>
+            <IsColumnMajor>true</IsColumnMajor>
+            <Margins>10</Margins>
+            <BackgroundColor>#FFFFFFFF</BackgroundColor>
+        </Strip>
+        <Information>
+            <HorizontalAlignment>1</HorizontalAlignment>
+            <VerticalAlignment>-1</VerticalAlignment>
+            <Margin>8</Margin>
+            <ShowParentPath>1</ShowParentPath>
+            <FontSize>22</FontSize>
+            <TextColor>White</TextColor>
+            <TextOutlineColor>Black</TextOutlineColor>
+            <TextOutlineThickness>2</TextOutlineThickness>
+        </Information>
+    </Screenshots>
+
+    <Backup>
+        <AutoBackupInterval>120</AutoBackupInterval>
+        <NumberOfBackupsToKeep>15</NumberOfBackupsToKeep>
+        <BackupsPath>backups</BackupsPath>
+    </Backup>
+</ProjectSettings>

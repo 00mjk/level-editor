@@ -1,26 +1,36 @@
-# Getting started
+# Level Editor
+## Purpose
+
+This level editor has been developed for creating all the levels of the game [Jelly Arcade] available on [Android] and [iOS].
+
+## Getting started
 
 The Level Editor has been build with WPF, so it runs only on Windows.
 
 To build the Level Editor, the simplest way is to execute the *Build.bat* script in the root folder.
-This has been tested on very few machines, so it may fail on yours according to your configuration.
 
-You can open the solution in [Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs), available for free, and build it.
+You can also open the solution in [Visual Studio 2015 Community Edition], available for free, and build it.
 
-Then you can either run it from Visual Studio, or execute the *bin/Release/LevelEditor.exe* file.
+Then you can either run it from Visual Studio, or execute *bin/Release/LevelEditor.exe* 
 
-# Level Editor
+The folder *[root]/Documentation* contains documentation explaining a bit more how to use the Level Editor.
 
-Once you could build and run the Level Editor, click the menu *File/Load Project...* and select file *[root]/SampleData/ProjectFiles/SampleProject.settings*.
+## Sample project
 
-From now on, the project is loaded so you should see components on the right of the window, and sprites on the left of the window.
+We included sample project files in the folder **SampleProject**
 
-Then load a level file by clicking the menu *File/Open...* and select any file in folder *[root]/SampleData/LevelFiles/*.
+This folder also contains a Unity project showing how to import level files within [Unity 3D].
 
-In the folder *[root]/Documentation* you can find another documentation explaining a bit more how to use the Level Editor.
+Please refer to the readme file in this folder for more information.
 
-# Warning
+## Future work
 
-The Level Editor still does not have undo/redo feature, and we have no idea when we will have time to implement it.
+The editor does not have undo/redo feature. 
 
-It has an auto-backup feature to avoid too much lose in case of crash.
+For now we implemented an auto-backup feature to avoid too much lose in case of crash.
+
+[Jelly Arcade]: <http://jellyarcade.com/>
+[Android]: <https://play.google.com/store/apps/details?id=jp.co.bitcraft.jellyarcade>
+[iOS]: <https://itunes.apple.com/us/app/jelly-arcade/id1035083184>
+[Visual Studio 2015 Community Edition]: <https://www.visualstudio.com/products/visual-studio-community-vs>
+[Unity 3D]: <https://unity3d.com/>
