@@ -15,9 +15,22 @@ Then you can either run it from Visual Studio, or execute *bin/Release/LevelEdit
 
 The folder *[root]/Documentation* contains documentation explaining a bit more how to use the Level Editor.
 
-## Sample project
+## Samples
+### Editor project files
 
-We included sample project files in the folder **SampleProject**
+We included sample project files in the folder *SampleProject/LevelEditorSettings*
+
+Open the file *SampleProject.settings* it in the editor via the menu *File/Load Project*. 
+
+You should see some components being loaded in the left-hand side panel *Components*,  as well as a few *Game Board Elements* on the right-hand side panel.
+
+Then you can load the sample level file *SampleLevel.bytes* located in the folder *SampleProject/Assets/Levels* via the menu *File/Open*
+
+Once loaded, the first block of the level should be displayed automatically. The level file contains two blocks, you can browse them using the drop-down selector above the editor workspace.
+
+![Level Editor Sample](https://www.bitcraft.co.jp/pub/github/level-editor/level-editor-sample.png "Level Editor Sample") 
+
+### Unity 3D project
 
 This folder also contains a Unity project showing how to import level files within [Unity 3D].
 
